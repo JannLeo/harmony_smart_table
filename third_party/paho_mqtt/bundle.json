@@ -1,0 +1,25 @@
+{
+    "name": "@bearpi/hm_nano_paho_mqtt",
+    "version": "1.0.1",
+    "description": "paho_mqtt",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/third_party/paho_mqtt && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "bearpi",
+        "paho",
+	    "mqtt"
+    ],
+    "author": {},
+    "repository": "",
+    "license": "Eclipse Public License - v 1.0",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "0.0.1",
+        "kernel": "",
+        "board": ""
+    }
+}

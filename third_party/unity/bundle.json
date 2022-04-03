@@ -1,0 +1,21 @@
+{
+    "name": "@ohos/unity",
+    "version": "1.0.0",
+    "license": "MIT",
+    "description": "Simple Unit Testing for C",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/third_party/unity && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "unity"
+    ],
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "",
+        "board": ""
+    }
+}

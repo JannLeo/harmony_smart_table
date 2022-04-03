@@ -1,0 +1,207 @@
+ninja_required_version = 1.7.2
+
+rule gn
+  command = ../../../../../../../gn/gn --root=../.. -q --dotfile=../../build/lite/.gn gen .
+  description = Regenerating ninja files
+
+build build.ninja: gn
+  generator = 1
+  depfile = build.ninja.d
+
+subninja toolchain.ninja
+
+build acts: phony obj/test/xts/acts/acts.stamp
+build acts_compoment: phony obj/test/xts/acts/acts_compoment.stamp
+build app: phony obj/applications/sample/wifi-iot/app/app.stamp
+build authmanager: phony ./libs/libauthmanager.a
+build bootstrap: phony ./libs/libbootstrap.a
+build broadcast: phony ./libs/libbroadcast.a
+build cjson_ndk: phony obj/third_party/cJSON/cjson_ndk.stamp
+build cjson_shared: phony obj/third_party/cJSON/cjson_shared.stamp
+build cjson_static: phony ./libs/libcjson_static.a
+build cmsis: phony ./libs/libcmsis.a
+build common_lite: phony ./libs/libcommon_lite.a
+build discovery: phony ./libs/libdiscovery.a
+build discovery_ndk: phony obj/foundation/communication/services/softbus_lite/discovery_ndk.stamp
+build file: phony obj/utils/native/lite/file/file.stamp
+build gen_rootfs: phony obj/build/lite/gen_rootfs.stamp
+build hal_file_static: phony ./libs/libhal_file_static.a
+build hal_iothardware: phony ./libs/libhal_iothardware.a
+build hal_sysparam: phony ./libs/libhal_sysparam.a
+build hal_token_static: phony ./libs/libhal_token_static.a
+build hilog_lite: phony ./libs/libhilog_lite.a
+build hilog_lite_ndk: phony obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp
+build hiview_lite: phony ./libs/libhiview_lite.a
+build iothardware_ndk: phony obj/base/iot_hardware/frameworks/wifiiot_lite/src/iothardware_ndk.stamp
+build kal: phony ./libs/libkal.a
+build kv_store: phony obj/utils/native/lite/kv_store/kv_store.stamp
+build native_file: phony ./libs/libnative_file.a
+build ndk: phony obj/build/lite/ndk.stamp
+build nfc_example: phony ./libs/libnfc_example.a
+build ohos: phony obj/build/lite/ohos.stamp
+build pahomqtt_ndk: phony obj/third_party/pahomqtt/pahomqtt_ndk.stamp
+build pahomqtt_shared: phony obj/third_party/pahomqtt/pahomqtt_shared.stamp
+build pahomqtt_static: phony ./libs/libpahomqtt_static.a
+build parameter: phony obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp
+build parameter_notes: phony obj/base/startup/frameworks/syspara_lite/parameter/parameter_notes.stamp
+build run_wifiiot_scons: phony obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons.stamp
+build samgr_adapter: phony ./libs/libsamgr_adapter.a
+build samgr_lite_ndk: phony obj/foundation/distributedschedule/services/samgr_lite/samgr_lite_ndk.stamp
+build samgr_source: phony ./libs/libsamgr_source.a
+build sdk: phony obj/vendor/hisi/hi3861/hi3861/sdk.stamp
+build softbus: phony obj/foundation/communication/services/softbus_lite/softbus.stamp
+build softbus_lite_ndk: phony obj/foundation/communication/services/softbus_lite/softbus_lite_ndk.stamp
+build sysparam: phony ./libs/libsysparam.a
+build token: phony obj/base/startup/frameworks/syspara_lite/token/token.stamp
+build token_notes: phony obj/base/startup/frameworks/syspara_lite/token/token_notes.stamp
+build token_static: phony ./libs/libtoken_static.a
+build tools: phony obj/test/xts/tools/tools.stamp
+build trans_service: phony ./libs/libtrans_service.a
+build trans_service_ndk: phony obj/foundation/communication/services/softbus_lite/trans_service_ndk.stamp
+build utils_kv_store: phony ./libs/libutils_kv_store.a
+build wifi: phony obj/foundation/communication/frameworks/wifi_lite/wifi.stamp
+build wifiiot_sdk: phony obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp
+build wifiservice: phony ./libs/libwifiservice.a
+build wifiservice_ndk: phony obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp
+build xdevice: phony obj/test/xdevice/xdevice.stamp
+build applications/sample/wifi-iot/app$:app: phony obj/applications/sample/wifi-iot/app/app.stamp
+build applications/sample/wifi-iot/app: phony obj/applications/sample/wifi-iot/app/app.stamp
+build applications/sample/wifi-iot/app/nfc_ljn$:nfc_example: phony ./libs/libnfc_example.a
+build base/hiviewdfx/frameworks/hilog_lite/mini$:hilog_lite: phony ./libs/libhilog_lite.a
+build base/hiviewdfx/frameworks/hilog_lite/mini$:hilog_lite_ndk: phony obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp
+build base/hiviewdfx/services/hiview_lite$:hiview_lite: phony ./libs/libhiview_lite.a
+build base/hiviewdfx/services/hiview_lite: phony ./libs/libhiview_lite.a
+build base/hiviewdfx/utils/lite$:common_lite: phony ./libs/libcommon_lite.a
+build base/iot_hardware/frameworks/wifiiot_lite$:iothardware: phony obj/base/iot_hardware/frameworks/wifiiot_lite/iothardware.stamp
+build base/iot_hardware/frameworks/wifiiot_lite/src$:iothardware: phony ./libs/libiothardware.a
+build base/iot_hardware/frameworks/wifiiot_lite/src$:iothardware_ndk: phony obj/base/iot_hardware/frameworks/wifiiot_lite/src/iothardware_ndk.stamp
+build base/security/frameworks/hichainsdk_lite$:hichainsdk: phony obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp
+build base/security/frameworks/hichainsdk_lite/source$:hichainsdk: phony ./libs/libhichainsdk.a
+build base/startup/frameworks/syspara_lite/parameter$:parameter: phony obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp
+build base/startup/frameworks/syspara_lite/parameter: phony obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp
+build base/startup/frameworks/syspara_lite/parameter$:parameter_notes: phony obj/base/startup/frameworks/syspara_lite/parameter/parameter_notes.stamp
+build base/startup/frameworks/syspara_lite/parameter/src$:sysparam: phony ./libs/libsysparam.a
+build base/startup/frameworks/syspara_lite/token$:token: phony obj/base/startup/frameworks/syspara_lite/token/token.stamp
+build base/startup/frameworks/syspara_lite/token: phony obj/base/startup/frameworks/syspara_lite/token/token.stamp
+build base/startup/frameworks/syspara_lite/token$:token_notes: phony obj/base/startup/frameworks/syspara_lite/token/token_notes.stamp
+build base/startup/frameworks/syspara_lite/token$:token_static: phony ./libs/libtoken_static.a
+build base/startup/services/bootstrap_lite/source$:bootstrap: phony ./libs/libbootstrap.a
+build build/lite$:gen_rootfs: phony obj/build/lite/gen_rootfs.stamp
+build build/lite$:ndk: phony obj/build/lite/ndk.stamp
+build build/lite$:ohos: phony obj/build/lite/ohos.stamp
+build foundation/communication/frameworks/wifi_lite$:wifi: phony obj/foundation/communication/frameworks/wifi_lite/wifi.stamp
+build foundation/communication/services/softbus_lite$:discovery_ndk: phony obj/foundation/communication/services/softbus_lite/discovery_ndk.stamp
+build foundation/communication/services/softbus_lite$:softbus: phony obj/foundation/communication/services/softbus_lite/softbus.stamp
+build foundation/communication/services/softbus_lite$:softbus_lite_ndk: phony obj/foundation/communication/services/softbus_lite/softbus_lite_ndk.stamp
+build foundation/communication/services/softbus_lite$:trans_service_ndk: phony obj/foundation/communication/services/softbus_lite/trans_service_ndk.stamp
+build foundation/communication/services/softbus_lite/authmanager$:authmanager: phony ./libs/libauthmanager.a
+build foundation/communication/services/softbus_lite/authmanager: phony ./libs/libauthmanager.a
+build foundation/communication/services/softbus_lite/discovery$:discovery: phony ./libs/libdiscovery.a
+build foundation/communication/services/softbus_lite/discovery: phony ./libs/libdiscovery.a
+build foundation/communication/services/softbus_lite/trans_service$:trans_service: phony ./libs/libtrans_service.a
+build foundation/communication/services/softbus_lite/trans_service: phony ./libs/libtrans_service.a
+build foundation/distributedschedule/services/samgr_lite$:samgr: phony obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp
+build foundation/distributedschedule/services/samgr_lite$:samgr_lite_ndk: phony obj/foundation/distributedschedule/services/samgr_lite/samgr_lite_ndk.stamp
+build foundation/distributedschedule/services/samgr_lite/communication/broadcast$:broadcast: phony ./libs/libbroadcast.a
+build foundation/distributedschedule/services/samgr_lite/communication/broadcast: phony ./libs/libbroadcast.a
+build foundation/distributedschedule/services/samgr_lite/samgr$:samgr: phony ./libs/libsamgr.a
+build foundation/distributedschedule/services/samgr_lite/samgr: phony ./libs/libsamgr.a
+build foundation/distributedschedule/services/samgr_lite/samgr/adapter$:samgr_adapter: phony ./libs/libsamgr_adapter.a
+build foundation/distributedschedule/services/samgr_lite/samgr/source$:samgr_source: phony ./libs/libsamgr_source.a
+build kernel/liteos_m/components/cmsis$:cmsis: phony ./libs/libcmsis.a
+build kernel/liteos_m/components/cmsis: phony ./libs/libcmsis.a
+build kernel/liteos_m/components/kal$:kal: phony ./libs/libkal.a
+build kernel/liteos_m/components/kal: phony ./libs/libkal.a
+build test/xdevice$:xdevice: phony obj/test/xdevice/xdevice.stamp
+build test/xdevice: phony obj/test/xdevice/xdevice.stamp
+build test/xts/acts$:acts: phony obj/test/xts/acts/acts.stamp
+build test/xts/acts: phony obj/test/xts/acts/acts.stamp
+build test/xts/acts$:acts_compoment: phony obj/test/xts/acts/acts_compoment.stamp
+build test/xts/tools$:tools: phony obj/test/xts/tools/tools.stamp
+build test/xts/tools: phony obj/test/xts/tools/tools.stamp
+build third_party/cJSON$:cjson_ndk: phony obj/third_party/cJSON/cjson_ndk.stamp
+build third_party/cJSON$:cjson_shared: phony obj/third_party/cJSON/cjson_shared.stamp
+build third_party/cJSON$:cjson_static: phony ./libs/libcjson_static.a
+build third_party/pahomqtt$:pahomqtt_ndk: phony obj/third_party/pahomqtt/pahomqtt_ndk.stamp
+build third_party/pahomqtt$:pahomqtt_shared: phony obj/third_party/pahomqtt/pahomqtt_shared.stamp
+build third_party/pahomqtt$:pahomqtt_static: phony ./libs/libpahomqtt_static.a
+build utils/native/lite/file$:file: phony obj/utils/native/lite/file/file.stamp
+build utils/native/lite/file: phony obj/utils/native/lite/file/file.stamp
+build utils/native/lite/file$:native_file: phony ./libs/libnative_file.a
+build utils/native/lite/kv_store$:kv_store: phony obj/utils/native/lite/kv_store/kv_store.stamp
+build utils/native/lite/kv_store: phony obj/utils/native/lite/kv_store/kv_store.stamp
+build utils/native/lite/kv_store/src$:utils_kv_store: phony ./libs/libutils_kv_store.a
+build vendor/hisi/hi3861/hi3861$:run_wifiiot_scons: phony obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons.stamp
+build vendor/hisi/hi3861/hi3861$:sdk: phony obj/vendor/hisi/hi3861/hi3861/sdk.stamp
+build vendor/hisi/hi3861/hi3861$:wifiiot_sdk: phony obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp
+build vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice$:wifiservice: phony ./libs/libwifiservice.a
+build vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice: phony ./libs/libwifiservice.a
+build vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice$:wifiservice_ndk: phony obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp
+build vendor/hisi/hi3861/hi3861_adapter/hals/iot_hardware/wifiiot_lite$:hal_iothardware: phony ./libs/libhal_iothardware.a
+build vendor/hisi/hi3861/hi3861_adapter/hals/utils/file$:hal_file_static: phony ./libs/libhal_file_static.a
+build vendor/huawei/wifi-iot/hals/utils/sys_param$:hal_sysparam: phony ./libs/libhal_sysparam.a
+build vendor/huawei/wifi-iot/hals/utils/token$:hal_token_static: phony ./libs/libhal_token_static.a
+
+build all: phony $
+    obj/applications/sample/wifi-iot/app/app.stamp $
+    ./libs/libnfc_example.a $
+    ./libs/libhilog_lite.a $
+    obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp $
+    ./libs/libhiview_lite.a $
+    ./libs/libcommon_lite.a $
+    obj/base/iot_hardware/frameworks/wifiiot_lite/iothardware.stamp $
+    ./libs/libiothardware.a $
+    obj/base/iot_hardware/frameworks/wifiiot_lite/src/iothardware_ndk.stamp $
+    obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp $
+    ./libs/libhichainsdk.a $
+    obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp $
+    obj/base/startup/frameworks/syspara_lite/parameter/parameter_notes.stamp $
+    ./libs/libsysparam.a $
+    obj/base/startup/frameworks/syspara_lite/token/token.stamp $
+    obj/base/startup/frameworks/syspara_lite/token/token_notes.stamp $
+    ./libs/libtoken_static.a $
+    ./libs/libbootstrap.a $
+    obj/build/lite/gen_rootfs.stamp $
+    obj/build/lite/ndk.stamp $
+    obj/build/lite/ohos.stamp $
+    obj/foundation/communication/frameworks/wifi_lite/wifi.stamp $
+    obj/foundation/communication/services/softbus_lite/discovery_ndk.stamp $
+    obj/foundation/communication/services/softbus_lite/softbus.stamp $
+    obj/foundation/communication/services/softbus_lite/softbus_lite_ndk.stamp $
+    obj/foundation/communication/services/softbus_lite/trans_service_ndk.stamp $
+    ./libs/libauthmanager.a $
+    ./libs/libdiscovery.a $
+    ./libs/libtrans_service.a $
+    obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp $
+    obj/foundation/distributedschedule/services/samgr_lite/samgr_lite_ndk.stamp $
+    ./libs/libbroadcast.a $
+    ./libs/libsamgr.a $
+    ./libs/libsamgr_adapter.a $
+    ./libs/libsamgr_source.a $
+    ./libs/libcmsis.a $
+    ./libs/libkal.a $
+    obj/test/xdevice/xdevice.stamp $
+    obj/test/xts/acts/acts.stamp $
+    obj/test/xts/acts/acts_compoment.stamp $
+    obj/test/xts/tools/tools.stamp $
+    obj/third_party/cJSON/cjson_ndk.stamp $
+    obj/third_party/cJSON/cjson_shared.stamp $
+    ./libs/libcjson_static.a $
+    obj/third_party/pahomqtt/pahomqtt_ndk.stamp $
+    obj/third_party/pahomqtt/pahomqtt_shared.stamp $
+    ./libs/libpahomqtt_static.a $
+    obj/utils/native/lite/file/file.stamp $
+    ./libs/libnative_file.a $
+    obj/utils/native/lite/kv_store/kv_store.stamp $
+    ./libs/libutils_kv_store.a $
+    obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons.stamp $
+    obj/vendor/hisi/hi3861/hi3861/sdk.stamp $
+    obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp $
+    ./libs/libwifiservice.a $
+    obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp $
+    ./libs/libhal_iothardware.a $
+    ./libs/libhal_file_static.a $
+    ./libs/libhal_sysparam.a $
+    ./libs/libhal_token_static.a
+
+default all

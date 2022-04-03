@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/syspara",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "系统属性模块，根据鸿蒙CDD文档提供获取设备信息的接口，如：产品名、品牌名、厂家名等，同时提供设置/读取系统属性的接口。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/base/startup/ &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "syspara"
+    ],
+    "license": " ",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "base"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-a,liteos-m",
+        "board": "hi3516,hi3518,hi3861"
+    }
+}

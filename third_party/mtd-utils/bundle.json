@@ -1,0 +1,24 @@
+{
+    "name": "@ohos/mtd_utils",
+    "version": "2.2.0",
+    "publishAs": "code-segment",
+    "description": "Third-party open-source software mtd_utils | 三方开源软件mtd_utils",
+    "scripts": {
+    },
+    "repository": "https://gitee.com/openharmony/third_party_mtd_utils",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "2.2.0",
+        "kernel": "liteos-m,liteos-a,linux",
+        "board": "hi3516"
+    },
+    "license": "GPL V2.0",
+    "keywords": [
+        "third-party","mtd","utils"
+    ],
+    "segment": {
+	"destPath": "third_party/mtd-utils"
+    }
+}

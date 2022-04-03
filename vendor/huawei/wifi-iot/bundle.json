@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/oem_iotlink",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "oem_iotlink",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/vendor/huawei/wifi-iot &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "vender"
+    ],
+    "license": "Apache V2",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "vendor"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/iot_controller",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "\"IoT外设控制模块提供对外围设备的操作能力。本模块提供如下外围设备操作接口：ADC",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/base/iot_hardware &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "iot"
+    ],
+    "license": "Apache V2",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "base"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

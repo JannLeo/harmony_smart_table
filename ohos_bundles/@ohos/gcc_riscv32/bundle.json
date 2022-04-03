@@ -1,0 +1,14 @@
+{
+    "name": "@ohos/gcc_riscv32",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "./scripts/install.sh"
+    },
+    "description": "gcc_riscv32_bundle for dev",
+    "keywords": [
+        "gcc"
+    ],
+    "license":"GPL V2",
+    "repository":"https://github.com/riscv/riscv-gnu-toolchain"
+}

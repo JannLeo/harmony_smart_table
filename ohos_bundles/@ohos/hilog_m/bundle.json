@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/hilog_m",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "该仓库用于存放DFX框架的代码。主要包含DFR（可靠性）和DFT（可测试性）特性。由于芯片平台资源有限，且硬件平台多样，因此需要针对不同硬件架构和资源提供组件化且可定制的DFX框架。根据RISC-V、Cortex-M、Cortex-A不同硬件平台，提供两种不同的轻量级DFX框架，以下简称mini、featured。mini框架：针对处理架构为Cortex-M或同等处理能力的硬件平台，系统内存一般低于512KB，无文件系统或者仅提供一个可有限使用的轻量级文件系统，遵循CMSIS接口规范。featured框架：处理架构为Cortex-A或同等处理能力的硬件平台，内存资源大于512KB，文件系统完善，可存储大量数据，遵循POSIX接口规范。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/base/hiviewdfx &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "hilog"
+    ],
+    "license": "Apache V2",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "base"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

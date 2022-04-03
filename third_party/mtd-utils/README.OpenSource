@@ -1,0 +1,11 @@
+[
+    {
+        "Name"                  : "mtd-utils",
+        "License"               : "GPL V2.0",
+        "License File"          : "COPYING",
+        "Version Number"        : "2.1.1",
+        "Owner"                 : "jianghan2@huawei.com",
+        "Upstream URL"          : "http://git.infradead.org/mtd-utils.git",
+        "Description"           : "MTD subsystem (stands for Memory Technology Devices) provides an abstraction layer for raw flash devices. It makes it possible to use the same API when working with different flash types and technologies, e.g. NAND, OneNAND, NOR, AG-AND, ECC'd NOR, etc."
+    }
+]

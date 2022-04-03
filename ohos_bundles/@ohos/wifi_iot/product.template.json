@@ -1,0 +1,22 @@
+{
+  "ohos_version": "OpenHarmony 1.0",
+  "board": "hi3861v100",
+  "kernel": "liteos_riscv",
+  "compiler": "gcc",
+  "subsystem": [],
+  "vendor_adapter_dir": "//vendor/hisi/hi3861/hi3861_adapter",
+  "third_party_dir": "//vendor/hisi/hi3861/hi3861/third_party",
+  "ohos_product_type":"",
+  "ohos_manufacture":"",
+  "ohos_brand":"",
+  "ohos_market_name":"",
+  "ohos_product_series":"",
+  "ohos_product_model":"",
+  "ohos_software_model":"",
+  "ohos_hardware_model":"",
+  "ohos_hardware_profile":"",
+  "ohos_serial":"",
+  "ohos_bootloader_version":"",
+  "ohos_secure_patch_level":"",
+  "ohos_abi_list":""
+}

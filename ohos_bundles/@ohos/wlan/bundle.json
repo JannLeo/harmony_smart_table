@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/wlan",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "WLAN 是目前比较主流的接入方式，WLAN本身业务较为复杂，驱动代码量大，技术门槛相对较高，同时对芯片厂家高度依赖。HDF基于WLAN的业务特点，设计组件化的驱动开发框架，建立不同框架体系下一致的WIFI抽象，并以相同的规则来约束和规范鸿蒙生态中不同设备形态下WLAN驱动的开发。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/foundation/communication &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "wlan"
+    ],
+    "license": " ",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "foundation"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

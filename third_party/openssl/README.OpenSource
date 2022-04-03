@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "OpenSSL",
+    "License": "OpenSSL License and Original SSLeay License",
+    "License File": "LICENSE",
+    "Version Number": "1.1.1f",
+    "Owner": "huangjun42@huawei.com",
+    "Upstream URL": "https://github.com/openssl/openssl/releases/tag/OpenSSL_1_1_1f",
+    "Description": "implementing the Transport Layer Security (TLS) protocols (including SSLv3) as well as a full-strength general purpose cryptographic library"
+  }
+]

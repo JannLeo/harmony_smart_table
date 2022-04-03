@@ -1,0 +1,123 @@
+rule cxx
+  command = riscv32-unknown-elf-g++ ${defines} ${include_dirs} ${cflags_cc} -c ${in} -o ${out}
+  description = CXX ${out}
+  depfile = ${out}.d
+  deps = gcc
+rule alink
+  command = riscv32-unknown-elf-ar cr ${out} @"${out}.rsp"
+  description = AR ${out}
+  rspfile = ${out}.rsp
+  rspfile_content = ${in}
+rule link
+  command = riscv32-unknown-elf-gcc ${ldflags}  -Wl,--start-group ${in} ${libs} -Wl,--end-group -o ${output_dir}/bin/${target_output_name}${output_extension} && riscv32-unknown-elf-strip --strip-unneeded ${output_dir}/bin/${target_output_name}${output_extension}
+  description = LINK ${output_dir}/bin/${target_output_name}${output_extension}
+  rspfile = ${output_dir}/bin/${target_output_name}${output_extension}.rsp
+  rspfile_content = ${in}
+rule solink
+  command = riscv32-unknown-elf-gcc -shared ${ldflags}  -Wl,--start-group ${in} ${libs} -Wl,--end-group -o ${output_dir}/${target_output_name}${output_extension}&& riscv32-unknown-elf-strip --strip-unneeded ${output_dir}/${target_output_name}${output_extension}
+  description = SOLINK ${output_dir}/${target_output_name}${output_extension}
+  rspfile = ${out}.rsp
+  rspfile_content = ${in}
+rule stamp
+  command = /usr/bin/touch ${out}
+  description = STAMP ${out}
+rule asm
+  command = riscv32-unknown-elf-gcc ${defines} ${include_dirs} ${asmflags} ${in} -c -o ${out}
+  description = cross compiler ${out}
+  depfile = ${out}.d
+  deps = gcc
+rule cc
+  command = riscv32-unknown-elf-gcc ${defines} ${include_dirs} ${cflags} ${cflags_c} -c ${in} -o ${out}
+  description = cross compiler ${out}
+rule copy
+  command = cp -afd ${in} ${out}
+  description = COPY ${in} ${out}
+
+build obj/applications/sample/wifi-iot/app/app.stamp: stamp ./libs/libnfc_example.a
+subninja obj/applications/sample/wifi-iot/app/nfc_ljn/nfc_example.ninja
+subninja obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite.ninja
+build obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp: stamp ./libs/libhilog_lite.a
+subninja obj/base/hiviewdfx/services/hiview_lite/hiview_lite.ninja
+subninja obj/base/hiviewdfx/utils/lite/common_lite.ninja
+build obj/base/iot_hardware/frameworks/wifiiot_lite/iothardware.stamp: stamp ./libs/libiothardware.a ./libs/libhal_iothardware.a
+subninja obj/base/iot_hardware/frameworks/wifiiot_lite/src/iothardware.ninja
+build obj/base/iot_hardware/frameworks/wifiiot_lite/src/iothardware_ndk.stamp: stamp ./libs/libiothardware.a
+build obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp: stamp ./libs/libhichainsdk.a
+subninja obj/base/security/frameworks/hichainsdk_lite/source/hichainsdk.ninja
+build obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp: stamp ./libs/libsysparam.a
+build obj/base/startup/frameworks/syspara_lite/parameter/parameter_notes.stamp: stamp ./libs/libsysparam.a
+subninja obj/base/startup/frameworks/syspara_lite/parameter/src/sysparam.ninja
+build obj/base/startup/frameworks/syspara_lite/token/token.stamp: stamp ./libs/libtoken_static.a
+build obj/base/startup/frameworks/syspara_lite/token/token_notes.stamp: stamp
+subninja obj/base/startup/frameworks/syspara_lite/token/token_static.ninja
+subninja obj/base/startup/services/bootstrap_lite/source/bootstrap.ninja
+rule __build_lite_gen_rootfs___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
+  command = python ../../build/lite/gen_rootfs.py --path=../../out/wifiiot --board=hi3861v100 --kernel=liteos_riscv --compile_so=/bin/ --compile_bin=/bin/
+  description = ACTION //build/lite:gen_rootfs(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
+  restat = 1
+
+build gen/build/lite/gen_rootfs.log: __build_lite_gen_rootfs___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule | ../../build/lite/gen_rootfs.py obj/build/lite/ohos.stamp
+
+build obj/build/lite/gen_rootfs.stamp: stamp gen/build/lite/gen_rootfs.log
+build obj/build/lite/ndk.stamp: stamp
+build obj/build/lite/ohos.stamp: stamp obj/applications/sample/wifi-iot/app/app.stamp obj/foundation/communication/frameworks/wifi_lite/wifi.stamp obj/foundation/communication/services/softbus_lite/softbus.stamp obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp ./libs/libhiview_lite.a ./libs/libhilog_lite.a ./libs/libcommon_lite.a obj/base/iot_hardware/frameworks/wifiiot_lite/iothardware.stamp obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp obj/base/startup/frameworks/syspara_lite/parameter/parameter.stamp ./libs/libbootstrap.a obj/base/startup/frameworks/syspara_lite/token/token.stamp obj/test/xts/acts/acts.stamp obj/test/xts/tools/tools.stamp obj/utils/native/lite/kv_store/kv_store.stamp obj/utils/native/lite/file/file.stamp obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp
+build obj/foundation/communication/frameworks/wifi_lite/wifi.stamp: stamp ./libs/libwifiservice.a
+build obj/foundation/communication/services/softbus_lite/discovery_ndk.stamp: stamp ./libs/libdiscovery.a
+build obj/foundation/communication/services/softbus_lite/softbus.stamp: stamp ./libs/libdiscovery.a ./libs/libauthmanager.a ./libs/libtrans_service.a
+build obj/foundation/communication/services/softbus_lite/softbus_lite_ndk.stamp: stamp obj/foundation/communication/services/softbus_lite/discovery_ndk.stamp obj/foundation/communication/services/softbus_lite/trans_service_ndk.stamp
+build obj/foundation/communication/services/softbus_lite/trans_service_ndk.stamp: stamp ./libs/libtrans_service.a
+subninja obj/foundation/communication/services/softbus_lite/authmanager/authmanager.ninja
+subninja obj/foundation/communication/services/softbus_lite/discovery/discovery.ninja
+subninja obj/foundation/communication/services/softbus_lite/trans_service/trans_service.ninja
+build obj/foundation/distributedschedule/services/samgr_lite/samgr.stamp: stamp ./libs/libsamgr.a ./libs/libbroadcast.a
+build obj/foundation/distributedschedule/services/samgr_lite/samgr_lite_ndk.stamp: stamp ./libs/libsamgr.a ./libs/libbroadcast.a
+subninja obj/foundation/distributedschedule/services/samgr_lite/communication/broadcast/broadcast.ninja
+subninja obj/foundation/distributedschedule/services/samgr_lite/samgr/samgr.ninja
+subninja obj/foundation/distributedschedule/services/samgr_lite/samgr/adapter/samgr_adapter.ninja
+subninja obj/foundation/distributedschedule/services/samgr_lite/samgr/source/samgr_source.ninja
+subninja obj/kernel/liteos_m/components/cmsis/cmsis.ninja
+subninja obj/kernel/liteos_m/components/kal/kal.ninja
+rule __test_xdevice_xdevice___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
+  command = python ../../test/xts/tools/build/suite.py build_xdevice --project_dir /home/jannleo/code/HarmonyOS_Code/DevEco/Projects/demo2/test/xdevice --output_dirs /home/jannleo/code/HarmonyOS_Code/DevEco/Projects/demo2/out/wifiiot/suites/acts/tools,
+  description = ACTION //test/xdevice:xdevice(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
+  restat = 1
+
+build suites/acts/tools: __test_xdevice_xdevice___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule | ../../test/xts/tools/build/suite.py
+
+build obj/test/xdevice/xdevice.stamp: stamp suites/acts/tools
+rule __test_xts_acts_acts___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
+  command = python ../../test/xts/tools/build/suite.py archive_suite --suite_path /home/jannleo/code/HarmonyOS_Code/DevEco/Projects/demo2/out/wifiiot/suites/acts --testcases_name testcases --prebuilts_resource , --build_enabled true
+  description = ACTION //test/xts/acts:acts(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
+  restat = 1
+
+build suites/acts.zip: __test_xts_acts_acts___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule | ../../test/xts/tools/build/suite.py obj/test/xdevice/xdevice.stamp obj/test/xts/acts/acts_compoment.stamp
+
+build obj/test/xts/acts/acts.stamp: stamp suites/acts.zip
+build obj/test/xts/acts/acts_compoment.stamp: stamp
+build obj/test/xts/tools/tools.stamp: stamp
+build obj/third_party/cJSON/cjson_ndk.stamp: stamp ./libs/libcjson_static.a
+build obj/third_party/cJSON/cjson_shared.stamp: stamp
+subninja obj/third_party/cJSON/cjson_static.ninja
+build obj/third_party/pahomqtt/pahomqtt_ndk.stamp: stamp ./libs/libpahomqtt_static.a
+build obj/third_party/pahomqtt/pahomqtt_shared.stamp: stamp
+subninja obj/third_party/pahomqtt/pahomqtt_static.ninja
+build obj/utils/native/lite/file/file.stamp: stamp ./libs/libnative_file.a
+subninja obj/utils/native/lite/file/native_file.ninja
+build obj/utils/native/lite/kv_store/kv_store.stamp: stamp ./libs/libutils_kv_store.a
+subninja obj/utils/native/lite/kv_store/src/utils_kv_store.ninja
+rule __vendor_hisi_hi3861_hi3861_run_wifiiot_scons___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule
+  command = python ../../build/lite/build_ext_components.py --path=../../vendor/hisi/hi3861/hi3861 --command=sh\$ hm_build.sh
+  description = ACTION //vendor/hisi/hi3861/hi3861:run_wifiiot_scons(//build/lite/toolchain:linux_x86_64_riscv32_gcc)
+  restat = 1
+
+build obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons_build_ext_components.txt: __vendor_hisi_hi3861_hi3861_run_wifiiot_scons___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule | ../../build/lite/build_ext_components.py obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp obj/build/lite/ohos.stamp obj/vendor/hisi/hi3861/hi3861/sdk.stamp
+
+build obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons.stamp: stamp obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons_build_ext_components.txt
+build obj/vendor/hisi/hi3861/hi3861/sdk.stamp: stamp ./libs/libcmsis.a ./libs/libkal.a ./libs/libcjson_static.a ./libs/libpahomqtt_static.a
+build obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp: stamp obj/vendor/hisi/hi3861/hi3861/sdk.stamp
+subninja obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice.ninja
+build obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp: stamp ./libs/libwifiservice.a
+subninja obj/vendor/hisi/hi3861/hi3861_adapter/hals/iot_hardware/wifiiot_lite/hal_iothardware.ninja
+subninja obj/vendor/hisi/hi3861/hi3861_adapter/hals/utils/file/hal_file_static.ninja
+subninja obj/vendor/huawei/wifi-iot/hals/utils/sys_param/hal_sysparam.ninja
+subninja obj/vendor/huawei/wifi-iot/hals/utils/token/hal_token_static.ninja

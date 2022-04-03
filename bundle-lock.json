@@ -1,0 +1,151 @@
+{
+    "name": "dist",
+    "version": "1.0.0",
+    "dependencies": {
+        "@ohos/hiview": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/df/v3/4joNfHxHRreADlEm0KJLrA/xZoCatcARqaObo1NHu96gw.tgz",
+            "checksum": "ab3a251d15914bb88e9c85826be37b09dd799987da05857f1300f9551323f9dc"
+        },
+        "@ohos/iot_controller": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/8a/v3/wrkX0c4CRxC4lOkOEUi0VA/MqFgj6mER-CAWgqxDr09qg.tgz",
+            "checksum": "28208ae5bb9a25bc5db2ebb406c6a012e7c819807ac5e141490feedcd2a8e21d"
+        },
+        "@ohos/hichainsdk": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/26/v3/LXx0InWlQ8SNH_N9X5kC8g/DEISLfVQQz64UtqeWV0ytA.tgz",
+            "checksum": "d923c505a853541dfb9cd9fd2ca7f2b31a4b1eb0fe1c16e5cf9d0c1baa653a9c"
+        },
+        "@ohos/syspara": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/fd/v3/4BnNQr64SEesywd8VW2a3A/5DkjwqWwSC2P58ywc7Xjqw.tgz",
+            "checksum": "41637df3fbc4ec261ea9fa2498edb2ee1bf7a019b4a6e3241bb38c541f7220c1"
+        },
+        "@ohos/bootstrap": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/e6/v3/g492Y3IjQf-qQ14GL8xd0Q/pHUaF9KBTEyuAHV9Ymz0vA.tgz",
+            "checksum": "17d443a28e1e7bf0b50940daeab1b4efd1400353be796b33157e6c7dd2b6968e"
+        },
+        "@ohos/token": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/0e/v3/ICv0Iu6mTEqWotimOsdakA/Ag4A3FnVQNuvxPmsVzrFaw.tgz",
+            "checksum": "554223ab52aaa6badafcbee933fcea0b5d6368264383431df3587bbc50f3121d"
+        },
+        "@ohos/build": {
+            "version": "1.0.1",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/1a/v3/_NafN1TpRc-WaIvHO8qgnA/x6WdHrNFQ6emCQADsTd3gw.tgz",
+            "checksum": "993c7869c950708d0d4b1efcb1d46960df451b8ac9361b13c99c39a2390b69c5"
+        },
+        "@ohos/wlan": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/be/v3/O7mB1fPaRfuFm_kiMJEZMA/7uGkTbEBRbavIwpoZexWpw.tgz",
+            "checksum": "19a75db071f4e321d851c5a7de3da18155298a594a84db6675e9cca6c3fd72c6"
+        },
+        "@ohos/system_ability_manager": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/53/v3/2G5-W6loT06S5HHSPa6RGg/cdo07PaISauIY9C8XPz7oA.tgz",
+            "checksum": "d098c97312c720cd3fb28faf8d51767bda6cc276a4b324060ef2c49072da1494"
+        },
+        "@ohos/utils": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/34/v3/pyJ3Qou0RDSP7zvSgoXubw/JcvI0o2lSU-2eHp6CawhGA.tgz",
+            "checksum": "09bb58a040c13c7d4f1d195d1bb49b2161e38d790e964c76d01d14d74a274eb4"
+        },
+        "@ohos/xts": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/c6/v3/ZbMe_FCHTrGZRk-HwVeGmA/CL9vXqLVSz6naBdQ_LeTLg.tgz",
+            "checksum": "1013c64b0bd8c13058205a2ff75029f9c4f83c567b1287965331fc99987e22ba"
+        },
+        "@ohos/hi3861": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/fb/v3/Ut_PBZ1CTzKIJVIvv7rl8A/0t8BORG3TZSLCnckIeGxYA.tgz",
+            "checksum": "1da96f964fe163aae12c84a9b9c982c7de8b0ff181599032999a99ca8dcafa21"
+        },
+        "@ohos/hi3861_adapter": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/21/v3/kozdUnbNTm6aQ5xxhNKfrw/6QWgxu7eTmy0-l_m7frCLQ.tgz",
+            "checksum": "220888bb612b9eb0caf4e729e1135d807060bb68f0ccffa7f3be9d7b9a895dd2"
+        },
+        "@ohos/wifi_iot_sample_app": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/b4/v3/TjFcEXIPRJyMPKSntwCk7Q/s6djlzNwRyuzopVyyRT0RA.tgz",
+            "checksum": "b47c0b847382ccb3f92539b6555d5100085d107a908b612d702d529472967e46"
+        },
+        "@ohos/cjson": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/96/v3/eheqDNYxQxqjvXsioYbvOw/OLluV7PoRfOZ3izzsIv5_g.tgz",
+            "checksum": "e72e0d01454604a91517d1c2b33b76779b11c6a4727affb42c371d9415dcce91"
+        },
+        "@ohos/oem_iotlink": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/4f/v3/fOMD526CSyO-mM8OW9s6Rw/fZIXj74hSGuQHSizT99FUQ.tgz",
+            "checksum": "044065dd12f03fec078e6c9e8556ed209208730495a02b3e2e2979a883775c2e"
+        },
+        "@ohos/cmsis": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/29/v3/PvNaY53pSiaf9T-kuzHt5g/jCVwxd6nSgGNmpRY3TClKQ.tgz",
+            "checksum": "2310acf0cc8f290c55354435d9bde4100d4f2ad6c6e1dcdb41377f8902f29394"
+        },
+        "@ohos/soft_bus": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/e6/v3/vRRtymL_RSiqN91Ws8Xg4g/vzRqs8-kQpOB3TDwHP5cpw.tgz",
+            "checksum": "380fa2fe6ea1bc76276a6bb3e4d6efab40260cca1f65bf59687141d95421d5d5"
+        },
+        "@ohos/gn": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/f0/v3/AcCdqqEmRFCMs5kmL3Nf3w/U5mLEv-NR-qWh3rHpgf5ng.tgz",
+            "checksum": "cd991971f8ebe57ecc96ba83114ce2095800dadb73d871d40364cf80b4338cd2"
+        },
+        "@ohos/ninja": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/67/v3/RxePLvMGR6i6lTePbF9Auw/AMTYvf2KTP-GxgAsUPBx5g.tgz",
+            "checksum": "7dcb9d58912f941a0dda4ac823b22e6b2072d5a96f28bf78e05fe5c0156746e2"
+        },
+        "@ohos/hilog_m": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/50/v3/GxKhad-LTBiuLlkebT6opQ/kbblz5usRXq96_CWJpAfJQ.tgz",
+            "checksum": "6a6ff2454374b556798bab736c2804a8840fa599e69fc7e3237109e08d293085"
+        },
+        "@ohos/unity": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/a5/v3/ImyMGbQKQn6JOMuc-gcpsg/GFfkzVkQSOWVnYR45pyxkg.tgz",
+            "checksum": "f0a94f3b5becb8f9c99110a06022f77f1a87866372ac7e03d71f3e7dac3d4fbb"
+        },
+        "@ohos/gcc_riscv32": {
+            "version": "1.0.0",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/fe/v3/V23NE4eUTleLTrJDb1VFug/bCEAc4q5Suumk9tZTZVtJA.tgz",
+            "checksum": "42cfa5b28b1f7de73e2777a9cc43c046857986f10357ac01e5dc9d572351e26a"
+        },
+        "@ohos/wifi_iot": {
+            "version": "1.0.3",
+            "url": "https://contentcenter-drcn.dbankcdn.com/pub_1/DevEcoSpace_1_900_9/9a/v3/u1FoFFt3TRyEjOSUoD-ZnQ/WNwOrt5GQ7yZECUUABE1eQ.tgz",
+            "checksum": "9e846d4375ba6a5bc169688d6b50c0277b7000e3dc0e128b5c5e749641933a4e",
+            "dependencies": {
+                "@ohos/hiview": "~1.0.0",
+                "@ohos/iot_controller": "~1.0.0",
+                "@ohos/hichainsdk": "~1.0.0",
+                "@ohos/syspara": "~1.0.0",
+                "@ohos/bootstrap": "~1.0.0",
+                "@ohos/token": "~1.0.0",
+                "@ohos/build": "~1.0.1",
+                "@ohos/wlan": "~1.0.0",
+                "@ohos/system_ability_manager": "~1.0.0",
+                "@ohos/utils": "~1.0.0",
+                "@ohos/xts": "~1.0.0",
+                "@ohos/hi3861": "~1.0.0",
+                "@ohos/hi3861_adapter": "~1.0.0",
+                "@ohos/wifi_iot_sample_app": "~1.0.0",
+                "@ohos/cjson": "~1.0.0",
+                "@ohos/oem_iotlink": "~1.0.0",
+                "@ohos/cmsis": "~1.0.0",
+                "@ohos/soft_bus": "~1.0.0",
+                "@ohos/gn": "~1.0.0",
+                "@ohos/ninja": "~1.0.0",
+                "@ohos/hilog_m": "~1.0.0",
+                "@ohos/unity": "~1.0.0",
+                "@ohos/gcc_riscv32": "~1.0.0"
+            }
+        }
+    }
+}

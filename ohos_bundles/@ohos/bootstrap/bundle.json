@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/bootstrap",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "bootstrap启动服务模块：支持使用LiteOS-M内核的平台，当前包括：Hi3861平台。提供了各服务和功能的启动入口标识。在SAMGR启动时，会调用boostrap标识的入口函数，并启动系统服务。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/base/startup/services/bootstrap_lite &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "bootstrap"
+    ],
+    "license": "Apache V2",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "base"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

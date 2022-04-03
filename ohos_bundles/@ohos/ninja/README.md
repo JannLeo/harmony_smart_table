@@ -1,0 +1,1 @@
+Ninja is a small build system with a focus on speed. It differs from other build systems in two majo

@@ -1,0 +1,15 @@
+{
+    "name": "dist",
+    "version": "1.0.0",
+    "publishAs": "distribution",
+    "description": "this is a distribution created by template",
+    "license": "unlicensed",
+    "scripts": {
+        "e2e": "echo 'e2e testing'"
+    },
+    "base": {
+        "name": "@ohos/wifi_iot",
+        "version": "~1.0.3"
+    },
+    "url": ""
+}

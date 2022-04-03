@@ -1,0 +1,137 @@
+[
+    {
+        "name": "applications",
+        "component": [
+            {
+                "name": "wifi_iot_sample_app",
+                "dir": "//applications/sample/wifi-iot/app",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "communication",
+        "component": [
+            {
+                "name": "wlan",
+                "dir": "//foundation/communication/frameworks/wifi_lite:wifi",
+                "features": []
+            },
+            {
+                "name": "soft_bus",
+                "dir": "//foundation/communication/services/softbus_lite:softbus",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "distributedschedule",
+        "component": [
+            {
+                "name": "system_ability_manager",
+                "dir": "//foundation/distributedschedule/services/samgr_lite:samgr",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "hiviewdfx",
+        "component": [
+            {
+                "name": "hiview",
+                "dir": "//base/hiviewdfx/services/hiview_lite:hiview_lite",
+                "features": []
+            },
+            {
+                "name": "hilog_m",
+                "dir": "//base/hiviewdfx/frameworks/hilog_lite/mini:hilog_lite",
+                "features": []
+            },
+            {
+                "name": "hilog_m",
+                "dir": "//base/hiviewdfx/utils/lite:common_lite",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "iot_hardware",
+        "component": [
+            {
+                "name": "iot_controller",
+                "dir": "//base/iot_hardware/frameworks/wifiiot_lite:iothardware",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "security",
+        "component": [
+            {
+                "name": "hichainsdk",
+                "dir": "//base/security/frameworks/hichainsdk_lite:hichainsdk",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "startup",
+        "component": [
+            {
+                "name": "syspara",
+                "dir": "//base/startup/frameworks/syspara_lite/parameter:parameter",
+                "features": []
+            },
+            {
+                "name": "bootstrap",
+                "dir": "//base/startup/services/bootstrap_lite/source:bootstrap",
+                "features": []
+            },
+            {
+                "name": "token",
+                "dir": "//base/startup/frameworks/syspara_lite/token:token",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "test",
+        "component": [
+            {
+                "name": "xts",
+                "dir": "//test/xts/acts",
+                "features": []
+            },
+            {
+                "name": "xts",
+                "dir": "//test/xts/tools",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "utils",
+        "component": [
+            {
+                "name": "utils",
+                "dir": "//utils/native/lite/kv_store:kv_store",
+                "features": []
+            },
+            {
+                "name": "utils",
+                "dir": "//utils/native/lite/file:file",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "vendor",
+        "component": [
+            {
+                "name": "hi3861",
+                "dir": "//vendor/hisi/hi3861/hi3861:wifiiot_sdk",
+                "features": []
+            }
+        ]
+    }
+]

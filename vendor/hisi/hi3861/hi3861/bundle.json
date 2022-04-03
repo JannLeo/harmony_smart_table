@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/hi3861",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "Hi3861V100是一款高度集成的2.4GHz WiFi SoC芯片，集成IEEE 802.11b/g/n基带和RF电路，RF电路包括功率放大器PA、低 噪声放大器LNA、RF balun、天线开关以及电源管理等模块；支持20MHz标准带宽和5MHz/10MHz窄带宽，提供最大72.2Mbit/s 物理层速率。 Hi3861V100 WiFi基带支持正交频分复用（OFDM）技术，并向下兼容直接序列扩频（DSSS）和补码键控（CCK）技术，支 持IEEE 802.11 b/g/n协议的各种数据速率。 Hi3861V100芯片集成高性能32bit微处理器、硬件安全引擎以及丰富的外设接口，外设接口包括SPI、UART、I2C、PWM、 GPIO和多路ADC，同时支持高速SDIO2.0 Slave接口，最高时钟可达50MHz；芯片内置SRAM和Flash，可独立运行，并支持 在Flash上运行程序。 Hi3861V100芯片适应于智能家电等物联网智能终端领域。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/vendor/hisi/hi3861/hi3861 &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "vender"
+    ],
+    "license": " ",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "vendor"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

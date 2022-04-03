@@ -1,0 +1,24 @@
+{
+    "name": "@ohos/mbedtls",
+    "version": "2.2.0",
+    "publishAs": "code-segment",
+    "description": "Third-party open-source software Mbed TLS | 三方开源软件Mbed TLS",
+    "scripts": {
+    },
+    "repository": "https://gitee.com/openharmony/third_party_mbedtls",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "2.2.0",
+        "kernel": "liteos-m,liteos-a,linux",
+        "board": "hi3516"
+    },
+    "license": "Apache V2,GPL V2.0",
+    "keywords": [
+        "third-party","mbedtls"
+    ],
+    "segment": {
+	"destPath": "third_party/mbedtls"
+    }
+}

@@ -1,0 +1,24 @@
+{
+    "name": "@ohos/musl",
+    "version": "2.2.0",
+    "publishAs": "code-segment",
+    "description": "Third-party open-source software musl | 三方开源软件musl",
+    "scripts": {
+    },
+    "repository": "https://gitee.com/openharmony/third_party_musl",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "2.2.0",
+        "kernel": "liteos-m,liteos-a,linux",
+        "board": "hi3516"
+    },
+    "license": "MIT",
+    "keywords": [
+        "third-party","musl"
+    ],
+    "segment": {
+	"destPath": "third_party/musl"
+    }
+}

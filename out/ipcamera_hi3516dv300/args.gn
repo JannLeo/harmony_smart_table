@@ -1,0 +1,4 @@
+ohos_build_compiler_dir = "/home/jannleo/llvm/bin/.."
+enable_ohos_appexecfwk_feature_ability = true
+product = "ipcamera_hi3516dv300"
+ohos_build_type = "release"

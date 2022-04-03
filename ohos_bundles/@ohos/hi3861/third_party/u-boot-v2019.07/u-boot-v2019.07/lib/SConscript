@@ -1,0 +1,9 @@
+import os
+Import('env')
+
+env = env.Clone()
+
+src = [os.path.join('crc32.c'), os.path.join('lzma', 'LzmaDec.c'), os.path.join('lzma', 'LzmaTools.c')]
+objs = env.Object(src)
+objs.sort()
+Return('objs')

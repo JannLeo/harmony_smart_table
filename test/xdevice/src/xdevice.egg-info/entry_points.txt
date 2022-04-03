@@ -1,0 +1,4 @@
+[console_scripts]
+xdevice = xdevice.__main__:main_process
+xdevice_report = xdevice._core.report.__main__:main_report
+

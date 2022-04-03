@@ -1,0 +1,14 @@
+Building at 2022/04/03 04:17:43
+----------------------------top-----------------
+lib_name: uart
+lib_name: adc
+lib_name: tsensor
+lib_name: i2c
+lib_name: pwm
+lib_name: cfg
+lib_name: parttab
+lib_name: upg
+lib_name: at
+lib_name: wifiiot_app
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~libpath: ['-L/home/jannleo/code/HarmonyOS_Code/DevEco/Projects/demo2/vendor/hisi/hi3861/hi3861/build/scripts/../../../../../huawei/hms/hilink/ohos/l0/hi3861/lib/wifi', '-L/home/jannleo/gcc_riscv32/bin/../lib/gcc/riscv32-unknown-elf/7.3.0', '-Lbuild/build_tmp/libs/app/wifiiot_app', '-Lbuild/build_tmp/libs/components/at', '-Lbuild/build_tmp/libs/platform/drivers', '-Lbuild/build_tmp/libs/platform/system', '-Lbuild/build_tmp/scripts', '-Lbuild/libs', '-Lbuild/libs/hi3861/release/no_mesh', '-Lbuild/scripts', '-Lohos/libs']
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~libs: ['--no-whole-archive', '--whole-archive', '-lHwKeystoreSDK', '-ladc', '-lat', '-lauthmanager', '-lbootstrap', '-lbroadcast', '-lc_flash', '-lcfg', '-lcjson_static', '-lcmsis', '-lcommon_lite', '-lcpup', '-ldiag', '-ldiscovery', '-ldrv', '-lflash', '-lgcc', '-lgpio', '-lhal_file_static', '-lhal_iothardware', '-lhal_sysparam', '-lhal_token_static', '-lhichainsdk', '-lhilog_lite', '-lhiview_lite', '-li2c', '-lio', '-liothardware', '-liperf', '-lkal', '-llitekernel_flash', '-lltoswpa', '-llwip', '-lm_flash', '-lmbedtls', '-lnative_file', '-lnfc_example', '-lpahomqtt_static', '-lparttab', '-lpwm', '-lres_cfg', '-lsamgr', '-lsamgr_adapter', '-lsamgr_source', '-lsdio', '-lsec_flash', '-lspiffs', '-lsysparam', '-lsystem', '-ltoken_static', '-ltrans_service', '-ltsensor', '-luart', '-lupg', '-lutils_kv_store', '-lwifi', '-lwifi_flash', '-lwifiiot_app', '-lwifiservice', '-lwpa']

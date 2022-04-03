@@ -1,0 +1,15 @@
+{
+    "name": "@ohos/ninja",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "./scripts/install.sh"
+    },
+    "description": "ninja for dev",
+    "keywords": [
+        "ninja"
+    ],
+    "license":"Apache V2",
+    "homepage": "https://ninja-build.org/",
+    "repository": "https://github.com/ninja-build/ninja"
+}

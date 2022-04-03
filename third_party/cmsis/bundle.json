@@ -1,0 +1,25 @@
+{
+    "name": "@ohos/cmsis",
+    "version": "1.0.0",
+    "description": "Provides standard, universal real-time operating system (RTOS) APIs",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/third_party/cmsis && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "api",
+        "rtos"
+    ],
+    "author": {},
+    "homepage": "https://hpm.cbg.huawei.com",
+    "repository": "",
+    "license": "Apache V2",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "",
+        "board": ""
+    }
+}

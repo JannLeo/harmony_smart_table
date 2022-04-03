@@ -1,0 +1,24 @@
+{
+    "name": "@ohos/freebsd",
+    "version": "2.2.0",
+    "publishAs": "code-segment",
+    "description": "Third-party open-source software FreeBSD | 三方开源软件FreeBSD",
+    "scripts": {
+    },
+    "repository": "https://gitee.com/openharmony/third_party_FreeBSD",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "2.2.0",
+        "kernel": "liteos-m,liteos-a,linux",
+        "board": "hi3516"
+    },
+    "license": "BSD 2-Clause",
+    "keywords": [
+        "third-party","FreeBSD"
+    ],
+    "segment": {
+	"destPath": "third_party/FreeBSD"
+    }
+}

@@ -1,0 +1,3 @@
+ERROR at //build/lite/BUILD.gn:19:19: Unable to load "/home/jannleo/code/HarmonyOS_Code/DevEco/Projects/demo2/foundation/aafwk/frameworks/abilitymgr_lite/BUILD.gn".
+    product_cfg = read_file("//build/lite/product/${product}.json", "json")
+                  ^-------------------------------------------------------

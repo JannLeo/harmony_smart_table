@@ -1,0 +1,24 @@
+{
+    "name": "@ohos/openssl",
+    "version": "2.2.0",
+    "publishAs": "code-segment",
+    "description": "Third-party open-source software OpenSSL | 三方开源软件OpenSSL",
+    "scripts": {
+    },
+    "repository": "https://gitee.com/openharmony/third_party_openssl",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "2.2.0",
+        "kernel": "liteos-m,liteos-a,linux",
+        "board": "hi3516"
+    },
+    "license": "OpenSSL,Original SSLeay",
+    "keywords": [
+        "third-party","openssl"
+    ],
+    "segment": {
+	"destPath": "third_party/openssl"
+    }
+}

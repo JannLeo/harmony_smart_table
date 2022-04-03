@@ -1,0 +1,7 @@
+#pre {
+  color: #000;
+  white-space: pre-wrap;
+}
+.dark-mode #pre {
+  color: rgba(255, 255, 255, .8);
+}

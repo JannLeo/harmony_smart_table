@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/soft_bus",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "设备通信方式多种多样(USB/WIFI/BT等)，不同通信方式使用差异很大且繁琐，同时通信链路的融合共享和冲突无法处理，通信安全问题也不好保证。本项目致力于实现近场设备间统一的分布式通信能力管理，提供不区分链路的设备发现和传输接口。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/foundation/communication &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "softbus"
+    ],
+    "license": " ",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "foundation"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-a,liteos-m",
+        "board": "hi3516,hi3518,hi3861"
+    }
+}

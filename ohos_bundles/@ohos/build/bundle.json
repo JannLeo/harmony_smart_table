@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/build",
+    "version": "1.0.1",
+    "publishAs": "code-segment",
+    "description": "编译构建提供了一个在GN与ninja基础上的编译构建框架。支持以下功能：构建不同芯片平台的产品。如：Hi3518EV300平台的ipcamera产品，Hi3516DV300平台的ipcamera产品，Hi3861平台的wifi模组产品。构建HPM包管理配置生成的自定义产品。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/build &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "build"
+    ],
+    "license": "Apache V2",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "build"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-a,liteos-m",
+        "board": "hi3516,hi3518,hi3861"
+    }
+}

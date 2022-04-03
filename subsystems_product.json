@@ -1,0 +1,178 @@
+[
+    {
+        "name": "applications",
+        "optional": "true",
+        "component": [
+            {
+                "name": "wifi_iot_sample_app",
+                "dir": "//applications/sample/wifi-iot/app",
+                "optional": "true",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "communication",
+        "optional": "true",
+        "component": [
+            {
+                "name": "soft_bus",
+                "dir": "//foundation/communication/services/softbus_lite:softbus",
+                "optional": "true",
+                "features": []
+            },
+            {
+                "name": "wlan",
+                "dir": "//foundation/communication/frameworks/wifi_lite:wifi",
+                "optional": "false",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "distributedschedule",
+        "optional": "true",
+        "component": [
+            {
+                "name": "system_ability_manager",
+                "dir": "//foundation/distributedschedule/services/samgr_lite:samgr",
+                "optional": "false",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "hiviewdfx",
+        "optional": "true",
+        "component": [
+            {
+                "name": "dfx_common",
+                "dir": "//base/hiviewdfx/utils/lite:common_lite",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "hiview",
+                "dir": "//base/hiviewdfx/services/hiview_lite:hiview_lite",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "hilog_m",
+                "dir": "//base/hiviewdfx/frameworks/hilog_lite/mini:hilog_lite",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "hilog_m",
+                "dir": "//base/hiviewdfx/utils/lite:common_lite",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "hievent",
+                "dir": "//base/hiviewdfx/frameworks/hievent_lite:hievent_lite",
+                "optional": "true",
+                "features": [
+                    "enable_hos_hiview_event=fasle"
+                ]
+            }
+        ]
+    },
+    {
+        "name": "iot_hardware",
+        "optional": "true",
+        "component": [
+            {
+                "name": "iot_controller",
+                "dir": "//base/iot_hardware/frameworks/wifiiot_lite:iothardware",
+                "optional": "false",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "security",
+        "optional": "true",
+        "component": [
+            {
+                "name": "hichainsdk",
+                "dir": "//base/security/frameworks/hichainsdk_lite:hichainsdk",
+                "optional": "true",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "startup",
+        "optional": "true",
+        "component": [
+            {
+                "name": "syspara",
+                "dir": "//base/startup/frameworks/syspara_lite/parameter:parameter",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "bootstrap",
+                "dir": "//base/startup/services/bootstrap_lite/source:bootstrap",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "token",
+                "dir": "//base/startup/frameworks/syspara_lite/token:token",
+                "optional": "false",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "test",
+        "optional": "true",
+        "component": [
+            {
+                "name": "xts",
+                "dir": "//test/xts/acts",
+                "optional": "true",
+                "features": []
+            },
+            {
+                "name": "xts",
+                "dir": "//test/xts/tools",
+                "optional": "true",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "utils",
+        "optional": "true",
+        "component": [
+            {
+                "name": "utils",
+                "dir": "//utils/native/lite/kv_store:kv_store",
+                "optional": "false",
+                "features": []
+            },
+            {
+                "name": "utils",
+                "dir": "//utils/native/lite/file:file",
+                "optional": "false",
+                "features": []
+            }
+        ]
+    },
+    {
+        "name": "vendor",
+        "optional": "true",
+        "component": [
+            {
+                "name": "hi3861",
+                "dir": "//vendor/hisi/hi3861/hi3861:wifiiot_sdk",
+                "optional": "false",
+                "features": []
+            }
+        ]
+    }
+]

@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/utils",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "公共基础库存放鸿蒙通用的基础组件。",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/utils &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "utils"
+    ],
+    "license": " ",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "utils"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-a,liteos-m",
+        "board": "hi3516,hi3518,hi3861"
+    }
+}

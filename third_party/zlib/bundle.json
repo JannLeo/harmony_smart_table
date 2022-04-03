@@ -1,0 +1,24 @@
+{
+    "name": "@ohos/zlib",
+    "version": "2.2.0",
+    "publishAs": "code-segment",
+    "description": "Third-party open-source software zlib | 三方开源软件zlib",
+    "scripts": {
+    },
+    "repository": "https://gitee.com/openharmony/third_party_zlib",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "2.2.0",
+        "kernel": "liteos-m,liteos-a,linux",
+        "board": "hi3516"
+    },
+    "license": "Zlib LICENSE",
+    "keywords": [
+        "third-party","zlib"
+    ],
+    "segment": {
+	"destPath": "third_party/zlib"
+    }
+}

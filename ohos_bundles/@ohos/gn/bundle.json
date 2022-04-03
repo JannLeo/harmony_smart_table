@@ -1,0 +1,14 @@
+{
+    "name": "@ohos/gn",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "./scripts/install.sh"
+    },
+    "description": "gn for dev",
+    "keywords": [
+        "gn"
+    ],
+    "license":"gn LICENSE",
+    "repository": "https://gn.googlesource.com/gn/"
+}

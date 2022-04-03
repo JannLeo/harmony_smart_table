@@ -1,0 +1,11 @@
+[
+    {
+        "Name"                  : "FreeBSD",
+        "License"               : "BSD 2-Clause License",
+        "License File"          : "COPYRIGHT",
+        "Version Number"        : "11.4",
+        "Owner"                 : "tonghaoyang1@huawei.com",
+        "Upstream URL"          : "http://www.freebsd.org/",
+        "Description"           : "FreeBSD is an operating system used to power modern servers, desktops, and embedded platforms."
+    }
+]

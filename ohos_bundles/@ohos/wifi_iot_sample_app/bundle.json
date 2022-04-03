@@ -1,0 +1,23 @@
+{
+    "name": "@ohos/wifi_iot_sample_app",
+    "version": "1.0.0",
+    "publishAs": "code-segment",
+    "description": "wifi_iot_sample_app",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/applications/sample/wifi-iot &&mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "sample"
+    ],
+    "license": "Apache V2",
+    "repository": "",
+    "homepage": "",
+    "tags": [
+        "applications"
+    ],
+    "ohos": {
+        "os": "1.0.0",
+        "kernel": "liteos-m",
+        "board": "hi3861"
+    }
+}

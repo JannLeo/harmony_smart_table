@@ -1,0 +1,302 @@
+execute ota_builder with python...
+Compiling platform/drivers/uart/hi_uart.c
+Compiling platform/drivers/uart/uart.c
+Compiling platform/drivers/uart/uart_drv.c
+Archiving build/build_tmp/libs/platform/drivers/libuart.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/platform/drivers/libuart.a
+Compiling platform/drivers/adc/hi_adc.c
+Archiving build/build_tmp/libs/platform/drivers/libadc.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/platform/drivers/libadc.a
+Compiling platform/drivers/tsensor/hi_tsensor_pm.c
+Archiving build/build_tmp/libs/platform/drivers/libtsensor.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/platform/drivers/libtsensor.a
+Compiling platform/system/cfg/sal_cfg.c
+Archiving build/build_tmp/libs/platform/system/libcfg.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/platform/system/libcfg.a
+Compiling platform/system/partition_table/flash_partition_table.c
+Archiving build/build_tmp/libs/platform/system/libparttab.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/platform/system/libparttab.a
+Compiling platform/system/upg/kernel_crypto.c
+Compiling platform/system/upg/upg_check_boot_bin.c
+Compiling platform/system/upg/upg_check_file.c
+Compiling platform/system/upg/upg_check_secure.c
+Compiling platform/system/upg/upg_common.c
+Compiling platform/system/upg/upg_start_up.c
+Compiling platform/system/upg/upg_user_verify.c
+Archiving build/build_tmp/libs/platform/system/libupg.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/platform/system/libupg.a
+Compiling components/at/src/at.c
+Compiling components/at/src/at_cmd.c
+Compiling components/at/src/at_demo_hks.c
+Compiling components/at/src/at_general.c
+Compiling components/at/src/at_hipriv.c
+Compiling components/at/src/at_io.c
+Compiling components/at/src/at_lowpower.c
+Compiling components/at/src/at_parse.c
+Compiling components/at/src/at_printf.c
+Compiling components/at/src/at_wifi.c
+Compiling components/at/src/hi_at.c
+Archiving build/build_tmp/libs/components/at/libat.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/components/at/libat.a
+Compiling app/wifiiot_app/init/app_io_init.c
+Compiling app/wifiiot_app/src/app_demo_upg_verify.c
+Compiling app/wifiiot_app/src/app_main.c
+Archiving build/build_tmp/libs/app/wifiiot_app/libwifiiot_app.a
+riscv32-unknown-elf-ranlib build/build_tmp/libs/app/wifiiot_app/libwifiiot_app.a
+Compiling boot/commonboot/efuse/efuse_drv.c
+Compiling boot/commonboot/flash/flash_hw_process_flashboot.c
+Compiling boot/flashboot/common/nvm/hi_nvm.c
+Compiling boot/flashboot/common/partition_table/boot_partition_table.c
+Compiling boot/flashboot/drivers/efuse/efuse.c
+Compiling boot/flashboot/drivers/flash/hi_flashboot_flash.c
+Compiling boot/flashboot/drivers/gpio/hi_flashboot_gpio.c
+Compiling boot/flashboot/drivers/io/hi_flashboot_io.c
+Compiling boot/flashboot/drivers/lsadc/adc_drv.c
+Compiling boot/flashboot/lzmaram/lzmaram.c
+Compiling boot/flashboot/secure/crypto.c
+Compiling boot/flashboot/startup/main.c
+riscv32-unknown-elf-gcc -mabi=ilp32 -march=rv32imc -x assembler-with-cpp -Os -Wall -Werror -nostdinc -fno-common -DARCH_RISCV -DLOS_COMPILE_LDM -DHI_BOARD_ASIC -DCONFIG_COMPRESSION_OTA_SUPPORT -DCONFIG_CHIP_PKT_32K -Iboot/flashboot/fixed/include -Iboot/flashboot/upg -Iboot/flashboot/include -Iboot/flashboot/drivers/lsadc -Iboot/flashboot/drivers/efuse -Iboot/flashboot/include/lzma -Iboot/flashboot/drivers/gpio -Iboot/flashboot/drivers/io -Ithird_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma -Iboot/flashboot/secure -Iboot/commonboot -c -o build/build_tmp/objs/flashboot/startup/riscv_init_flashboot.o boot/flashboot/startup/riscv_init_flashboot.S
+Compiling boot/flashboot/startup/stack_protect.c
+Compiling third_party/u-boot-v2019.07/u-boot-v2019.07/lib/crc32.c
+Compiling third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaDec.c
+Compiling third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaTools.c
+Compiling boot/flashboot/upg/boot_start.c
+Compiling boot/flashboot/upg/boot_upg_check.c
+Compiling boot/flashboot/upg/boot_upg_check_secure.c
+Compiling boot/flashboot/upg/boot_upg_common.c
+Compiling boot/flashboot/upg/boot_upg_kernel.c
+Compiling boot/flashboot/upg/boot_upg_start_up.c
+Compiling boot/flashboot/upg/boot_upg_tool.c
+riscv32-unknown-elf-ld -nostdlib -nostartfiles -static --gc-sections -T/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/build/link/flashboot_sha256.lds -Lbuild/libs -Lbuild/libs/boot_libs build/build_tmp/objs/flashboot/boot/commonboot/efuse/efuse_drv.o build/build_tmp/objs/flashboot/boot/commonboot/flash/flash_hw_process_flashboot.o build/build_tmp/objs/flashboot/common/nvm/hi_nvm.o build/build_tmp/objs/flashboot/common/partition_table/boot_partition_table.o build/build_tmp/objs/flashboot/drivers/efuse/efuse.o build/build_tmp/objs/flashboot/drivers/flash/hi_flashboot_flash.o build/build_tmp/objs/flashboot/drivers/gpio/hi_flashboot_gpio.o build/build_tmp/objs/flashboot/drivers/io/hi_flashboot_io.o build/build_tmp/objs/flashboot/drivers/lsadc/adc_drv.o build/build_tmp/objs/flashboot/lzmaram/lzmaram.o build/build_tmp/objs/flashboot/secure/crypto.o build/build_tmp/objs/flashboot/startup/main.o build/build_tmp/objs/flashboot/startup/riscv_init_flashboot.o build/build_tmp/objs/flashboot/startup/stack_protect.o build/build_tmp/objs/flashboot/third_party/u-boot-v2019.07/u-boot-v2019.07/lib/crc32.o build/build_tmp/objs/flashboot/third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaDec.o build/build_tmp/objs/flashboot/third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaTools.o build/build_tmp/objs/flashboot/upg/boot_start.o build/build_tmp/objs/flashboot/upg/boot_upg_check.o build/build_tmp/objs/flashboot/upg/boot_upg_check_secure.o build/build_tmp/objs/flashboot/upg/boot_upg_common.o build/build_tmp/objs/flashboot/upg/boot_upg_kernel.o build/build_tmp/objs/flashboot/upg/boot_upg_start_up.o build/build_tmp/objs/flashboot/upg/boot_upg_tool.o -o build/build_tmp/cache/flash_boot.elf --start-group --end-group
+riscv32-unknown-elf-objcopy -Obinary -R .rom.text -R .rom.code.text -R .u_boot_cmd -R .rom.data -R .rom.code.data -R .rom.bss -R .rom.code.bss -S build/build_tmp/cache/flash_boot.elf build/build_tmp/cache/hi_flash_boot.bin
+cleanup(["build/build_tmp/cache/hi_flash_boot.bin"], ["build/build_tmp/cache/flash_boot.elf"])
+tools/sign_tool/sign_tool -i build/build_tmp/cache/hi_flash_boot.bin -o output/bin/Hi3861_boot_signed.bin -n -toutput/bin/Hi3861_boot_signed_B.bin
+[input file]:        build/build_tmp/cache/hi_flash_boot.bin
+[output file]:       output/bin/Hi3861_boot_signed.bin
+[tail boot]:         output/bin/Hi3861_boot_signed_B.bin
+Sign non securtiy kernel success!
+cleanup(["output/bin/Hi3861_boot_signed.bin"], ["build/build_tmp/cache/hi_flash_boot.bin"])
+Compiling boot/commonboot/efuse/efuse_drv.c
+Compiling boot/commonboot/flash/flash_hw_process_flashboot.c
+Compiling boot/loaderboot/common/cmd_loop.c
+Compiling boot/loaderboot/common/efuse_opt.c
+Compiling boot/loaderboot/common/nvm/hi_nvm.c
+Compiling boot/loaderboot/common/partition_table/load_partition_table.c
+Compiling boot/loaderboot/common/transfer.c
+Compiling boot/loaderboot/drivers/efuse/efuse.c
+Compiling boot/loaderboot/drivers/flash/hi_loaderboot_flash.c
+Compiling boot/loaderboot/drivers/lsadc/adc_drv.c
+Compiling boot/loaderboot/secure/burn_file.c
+Compiling boot/loaderboot/secure/load_crypto.c
+Compiling boot/loaderboot/startup/main.c
+riscv32-unknown-elf-gcc -mabi=ilp32 -march=rv32imc -x assembler-with-cpp -Os -Wall -Werror -nostdinc -fno-common -DARCH_RISCV -DLOS_COMPILE_LDM -DHI_BOARD_ASIC -DCONFIG_COMPRESSION_OTA_SUPPORT -DCONFIG_CHIP_PKT_32K -Iboot/loaderboot/include -Iboot/loaderboot/fixed/include -Iboot/loaderboot/secure -Iboot/commonboot -c -o build/build_tmp/objs/loaderboot/startup/riscv_init_loaderboot.o boot/loaderboot/startup/riscv_init_loaderboot.S
+Compiling boot/loaderboot/startup/stack_protect.c
+Compiling third_party/u-boot-v2019.07/u-boot-v2019.07/lib/crc32.c
+Compiling third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaDec.c
+Compiling third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaTools.c
+riscv32-unknown-elf-ld -nostdlib -nostartfiles -static --gc-sections -T/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/build/link/loaderboot_sha256.lds -Lbuild/libs -Lbuild/libs/boot_libs build/build_tmp/objs/loaderboot/boot/commonboot/efuse/efuse_drv.o build/build_tmp/objs/loaderboot/boot/commonboot/flash/flash_hw_process_flashboot.o build/build_tmp/objs/loaderboot/common/cmd_loop.o build/build_tmp/objs/loaderboot/common/efuse_opt.o build/build_tmp/objs/loaderboot/common/nvm/hi_nvm.o build/build_tmp/objs/loaderboot/common/partition_table/load_partition_table.o build/build_tmp/objs/loaderboot/common/transfer.o build/build_tmp/objs/loaderboot/drivers/efuse/efuse.o build/build_tmp/objs/loaderboot/drivers/flash/hi_loaderboot_flash.o build/build_tmp/objs/loaderboot/drivers/lsadc/adc_drv.o build/build_tmp/objs/loaderboot/secure/burn_file.o build/build_tmp/objs/loaderboot/secure/load_crypto.o build/build_tmp/objs/loaderboot/startup/main.o build/build_tmp/objs/loaderboot/startup/riscv_init_loaderboot.o build/build_tmp/objs/loaderboot/startup/stack_protect.o build/build_tmp/objs/loaderboot/third_party/u-boot-v2019.07/u-boot-v2019.07/lib/crc32.o build/build_tmp/objs/loaderboot/third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaDec.o build/build_tmp/objs/loaderboot/third_party/u-boot-v2019.07/u-boot-v2019.07/lib/lzma/LzmaTools.o -o build/build_tmp/cache/loader_boot.elf --start-group --end-group
+riscv32-unknown-elf-objcopy -Obinary -R .rom.text -R .rom.code.text -R .u_boot_cmd -R .rom.data -R .rom.code.data -R .rom.bss -R .rom.code.bss -S build/build_tmp/cache/loader_boot.elf build/build_tmp/cache/hi_loader_boot.bin
+cleanup(["build/build_tmp/cache/hi_loader_boot.bin"], ["build/build_tmp/cache/loader_boot.elf"])
+tools/sign_tool/sign_tool -i build/build_tmp/cache/hi_loader_boot.bin -o output/bin/Hi3861_loader_signed.bin -n
+[input file]:        build/build_tmp/cache/hi_loader_boot.bin
+[output file]:       output/bin/Hi3861_loader_signed.bin
+Sign non securtiy kernel success!
+riscv32-unknown-elf-gcc -Iplatform/os/Huawei_LiteOS/kernel/include -Iconfig -DCONFIG_TEE_HUKS_SUPPORT -DCONFIG_CHIP_PKT_32K -DHI_BOARD_ASIC -DHI_ON_FLASH -E build/link/system_config.ld.S -o build/build_tmp/scripts/system_config.ld -P
+nvimg_builder(["build/build_tmp/scripts/system_config.ld"], ["build/link/system_config.ld.S"])
+product_name_list: ['sta']
+xml h file: /mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/h_file/nv
+/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta
+app_subver_list: ['demo']
+current subver_name:demo
+root_dir: /mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool
+mdm_xml: /mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/xml_file/mss_nvi_db.xml
+HNV NAME:mss_nvi_db.xml
+nv_tool: /mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/tools/nv/cdbm
+app_subver_temp_dir:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/Hi3861_wifiiot_app/outside_demo
+make app_subver_temp_dir
+mdmxml:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/xml_file/mss_nvi_db.xml
+src_xml_list: ['/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/xml_file/mss_nvi_db.xml']
+combin_xml:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/Hi3861_wifiiot_app/mss_nvi_db.xml
+root_list [<Element 'HISTUDIO' at 0x7fbbb58ae7d0>]
+hi_nv_modify_by_cfg
+cfg_file: nv
+
+cmd_line= ('/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/tools/nv/cdbm', '/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/Hi3861_wifiiot_app/outside_demo/nv.xml', '/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/h_file/nv', '/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/Hi3861_wifiiot_app/outside_demo/nv')
+/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/Hi3861_wifiiot_app/outside_demo/nv.xml
+/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/h_file/nv
+/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/Hi3861_wifiiot_app/outside_demo/nv
+===========Init HDB Start===========
+*********strDataTypeDefPath:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/h_file/nv/../nv/nv_modem_struct_def.txt
+*********strDataTypeDefPath:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/h_file/nv/../nv/nv_modem_struct_def.txt
+*********strDataTypeDefPath:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/h_file/nv/../nv/nv_factory_struct_def.txt
+===========Init HDB finish===========
+===========Write NV Buffer To File===========
+===========Write NV Buffer Finish===========
+RETURN VALUE:0
+dst_hnv= /mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/hnv/Hi3861_wifiiot_app.hnv
+Factory NV total num:10
+NV_FILE_STRU :28
+Factory NV total size:824
+Normal NV total num:13
+NV_FILE_STRU :28
+Normal NV total size:766
+build hnv OK:/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/tools/nvtool/out_nv_bin/sta/nv/hnv/Hi3861_wifiiot_app.hnv
+ENDING
+riscv32-unknown-elf-gcc -Iplatform/os/Huawei_LiteOS/kernel/include -Iconfig -DCONFIG_TEE_HUKS_SUPPORT -DCONFIG_CHIP_PKT_32K -DHI_BOARD_ASIC -DHI_ON_FLASH -DFLASH_FIRM_START=4248512 -E build/link/link.ld.S -o build/build_tmp/scripts/link.lds -P
+riscv32-unknown-elf-ld -nostartfiles -nostdlib -static --gc-sections -L/mnt/disk/jenkins/packingtool/tools/gcc_riscv32/bin/../lib/gcc/riscv32-unknown-elf/7.3.0 -L/mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/build/scripts/../../../../../huawei/hms/hilink/ohos/l0/hi3861/lib/wifi -Lbuild/build_tmp/libs/app/wifiiot_app -Lbuild/build_tmp/libs/components/at -Lbuild/build_tmp/libs/platform/drivers -Lbuild/build_tmp/libs/platform/system -Lbuild/build_tmp/scripts -Lbuild/libs -Lbuild/libs/hi3861/release/no_mesh -Lbuild/scripts -Lohos/libs -Tbuild/build_tmp/scripts/link.lds -Map=output/bin/Hi3861_wifiiot_app.map -o output/bin/Hi3861_wifiiot_app.out --start-group --no-whole-archive --whole-archive -lHwKeystoreSDK -ladc -lat -lauthmanager -lbootstrap -lbroadcast -lc_flash -lcfg -lcjson_static -lcmsis -lcommon_lite -lcpup -ldiag -ldiscovery -ldrv -lflash -lgcc -lgpio -lhal_file_static -lhal_iothardware -lhal_sysparam -lhal_token_static -lhichainsdk -lhilog_lite -lhiview_lite -lio -liothardware -liperf -lkal -llitekernel_flash -lltoswpa -llwip -lm_flash -lmbedtls -lnative_file -lparttab -lres_cfg -lsamgr -lsamgr_adapter -lsamgr_source -lsdio -lsec_flash -lspiffs -lsysparam -lsystem -ltoken_static -ltrans_service -ltsensor -luart -lupg -lutils_kv_store -lwifi -lwifi_flash -lwifiiot_app -lwifiservice -lwpa --end-group
+riscv32-unknown-elf-objcopy -O binary output/bin/Hi3861_wifiiot_app.out build/build_tmp/cache/Hi3861_wifiiot_app.bin
+baseimg_builder(["build/build_tmp/cache/Hi3861_wifiiot_app_base.bin", "build/build_tmp/cache/Hi3861_wifiiot_app_kernel.bin"], ["build/build_tmp/cache/Hi3861_wifiiot_app.bin"])
+cleanup(["build/build_tmp/cache/Hi3861_wifiiot_app_base.bin", "build/build_tmp/cache/Hi3861_wifiiot_app_kernel.bin"], ["build/build_tmp/cache/Hi3861_wifiiot_app.bin"])
+ota_builder(["build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin"], ["build/build_tmp/cache/Hi3861_wifiiot_app_base.bin", "build/build_tmp/cache/Hi3861_wifiiot_app_kernel.bin"])
+********************package kernel&nv upgrade file********************
+upg kernel file    in: build/build_tmp/cache/Hi3861_wifiiot_app_kernel.bin
+upg normal nv file in: build/build_tmp/nv/Hi3861_wifiiot_app_normal.hnv
+upg file          out: build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin
+[common_head_offset=0][common_head_size=96]
+[common_key_offset=96][common_key_size=288]
+[common_head_sign_offset=384][common_head_sign_size=256]
+[section_head_offset=640][section_head_size=64]
+[upg_file_sign_offset=704][upg_file_sign_size=256]
+[padding_offset=683944][padding_size=8]
+[upg fill user info]chip:b'Hi3861'
+-------------build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin image info print start-------------
+[image_id=0x3c78961e][struct_version=0x0]]
+[section_offset=0x280][section_len=0xa6d30]
+[file_type=0xf0][file_version=0x0][encrypt_flag=0x42]
+[file_len=0xa6fb0][key_len=0x120]
+[file_attr=0x44]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[aes_key[0-1-14-15]=[0x0][0x0][0x0][0x0]]
+[aes_iv [0-1-14-15]=[0x0][0x0][0x0][0x0]]
+[common key][00]=[0x0]
+[common key][01]=[0x0]
+[common key][30]=[0x0]
+[common key][31]=[0x0]
+[common sign][00]=[0x42]
+[common sign][01]=[0x8f]
+[common sign][30]=[0x47]
+[common sign][31]=[0x4]
+[section sign][00]=[0x82]
+[section sign][01]=[0x85]
+[section sign][30]=[0x95]
+[section sign][31]=[0x9d]
+[image_id=0x3c78961e][struct_version=0x0]]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[section_count=0x2]
+[section0_compress=0x0][section0_offset=0x3c0][section0_len=0xa5be8]
+[section1_compress=0x0][section1_offset=0xa5fa8][section1_len=0x1000]
+-------------build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin image info print end--------------
+riscv32-unknown-elf-objdump -d output/bin/Hi3861_wifiiot_app.out > output/bin/Hi3861_wifiiot_app.asm
+burn_bin_builder(["output/bin/Hi3861_wifiiot_app_burn.bin", "output/bin/Hi3861_wifiiot_app_allinone.bin"], ["build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin", "output/bin/Hi3861_loader_signed.bin"])
+********************package hiburn file********************
+hbin flash boot file in : output/bin/Hi3861_boot_signed.bin
+hbin factory nv file in : build/build_tmp/nv/Hi3861_wifiiot_app_factory.hnv
+hbin normal nv file  in : build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin
+hbin upg file        in : build/build_tmp/nv/Hi3861_wifiiot_app_factory.hnv
+hbin file           out : output/bin/Hi3861_wifiiot_app_burn.bin
+-------------output/bin/Hi3861_wifiiot_app_burn.bin image info print start-------------
+[bin_size]=[0xb3fb0]
+[image_id=0x3c78961e][struct_version=0x0]]
+[section_offset=0x280][section_len=0xa6d30]
+[file_type=0xf0][file_version=0x0][encrypt_flag=0x42]
+[file_len=0xa6fb0][key_len=0x120]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[aes_key[0,1,14,15]=[0x0][0x0][0x0][0x0]]
+[aes_iv[0,1,14,15]=[0x0][0x0][0x0][0x0]]
+-------------output/bin/Hi3861_wifiiot_app_burn.bin image info print end--------------
+['output/bin/Hi3861_loader_signed.bin', 'output/bin/Hi3861_wifiiot_app_burn.bin', 'output/bin/Hi3861_boot_signed_B.bin']
+[0, 0, 2072576]
+[0, 2097152, 24576]
+[15360, 737200, 24576]
+[0, 1, 1]
+4022250975
+boot_ota_builder(["output/bin/Hi3861_wifiiot_app_flash_boot_ota.bin"], ["output/bin/Hi3861_boot_signed.bin"])
+********************package boot upgrade file********************
+boot upg file  in: output/bin/Hi3861_boot_signed.bin
+boot upg file out: output/bin/Hi3861_wifiiot_app_flash_boot_ota.bin
+[common_head_offset=0][common_head_size=96]
+[common_key_offset=96][common_key_size=288]
+[common_head_sign_offset=384][common_head_sign_size=256]
+[section_head_offset=640][section_head_size=64]
+[upg_file_sign_offset=704][upg_file_sign_size=256]
+[padding_offset=0][padding_size=0]
+[upg fill user info]chip:b'Hi3861'
+-------------output/bin/Hi3861_wifiiot_app_flash_boot_ota.bin image info print start-------------
+[image_id=0x3c78961e][struct_version=0x0]]
+[section_offset=0x280][section_len=0x60a0]
+[file_type=0xe1][file_version=0x0][encrypt_flag=0x42]
+[file_len=0x6320][key_len=0x120]
+[file_attr=0x44]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[aes_key[0-1-14-15]=[0x0][0x0][0x0][0x0]]
+[aes_iv [0-1-14-15]=[0x0][0x0][0x0][0x0]]
+[common key][00]=[0x0]
+[common key][01]=[0x0]
+[common key][30]=[0x0]
+[common key][31]=[0x0]
+[common sign][00]=[0xc9]
+[common sign][01]=[0x21]
+[common sign][30]=[0x2f]
+[common sign][31]=[0x82]
+[section sign][00]=[0x3]
+[section sign][01]=[0x99]
+[section sign][30]=[0xe6]
+[section sign][31]=[0xec]
+[image_id=0x3c78961e][struct_version=0x0]]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[section_count=0x1]
+[section0_compress=0x0][section0_offset=0x3c0][section0_len=0x5f60]
+[section1_compress=0x0][section1_offset=0x0][section1_len=0x0]
+-------------output/bin/Hi3861_wifiiot_app_flash_boot_ota.bin image info print end--------------
+compress_ota_builder(["output/bin/Hi3861_wifiiot_app_ota.bin"], ["build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin"])
+********************package compress upgrade file********************
+compress upg file in:  build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin
+compress upg file out: output/bin/Hi3861_wifiiot_app_ota.bin
+lzma compress tool : /mnt/disk/jenkins/workspace/openharmony/code/vendor/hisi/hi3861/hi3861/build/scripts/../../tools/lzma_tool/lzma_tool
+lzma    src   file : build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.bin
+lzma    out   file : build/build_tmp/cache/Hi3861_wifiiot_app_ota_temp.lzma
+
+LZMA 19.00 (x64) : Igor Pavlov : Public domain : 2019-02-21
+
+Input size:  683952 (0 MiB)
+                                                                Output size: 431176 (0 MiB)
+[upgbin-compressbin]0xa6fb0-0x12f000
+[common_head_offset=0][common_head_size=96]
+[common_key_offset=96][common_key_size=288]
+[common_head_sign_offset=384][common_head_sign_size=256]
+[section_head_offset=640][section_head_size=64]
+[upg_file_sign_offset=704][upg_file_sign_size=256]
+[padding_offset=432136][padding_size=8]
+[upg fill user info]chip:b'Hi3861'
+-------------output/bin/Hi3861_wifiiot_app_ota.bin image info print start-------------
+[image_id=0x3c78961e][struct_version=0x0]]
+[section_offset=0x280][section_len=0x69590]
+[file_type=0xf0][file_version=0x0][encrypt_flag=0x42]
+[file_len=0x69810][key_len=0x120]
+[file_attr=0x44]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[aes_key[0-1-14-15]=[0x0][0x0][0x0][0x0]]
+[aes_iv [0-1-14-15]=[0x0][0x0][0x0][0x0]]
+[common key][00]=[0x0]
+[common key][01]=[0x0]
+[common key][30]=[0x0]
+[common key][31]=[0x0]
+[common sign][00]=[0x55]
+[common sign][01]=[0x7b]
+[common sign][30]=[0xd8]
+[common sign][31]=[0x77]
+[section sign][00]=[0xf3]
+[section sign][01]=[0x29]
+[section sign][30]=[0xae]
+[section sign][31]=[0x48]
+[image_id=0x3c78961e][struct_version=0x0]]
+[hash_alg=0x0][sign_alg=0x3f][sign_param=0x0]
+[section_count=0x1]
+[section0_compress=0x1][section0_offset=0x3c0][section0_len=0x69448]
+[section1_compress=0x0][section1_offset=0x0][section1_len=0x0]
+-------------output/bin/Hi3861_wifiiot_app_ota.bin image info print end--------------
+[95m
+< ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >
+                              BUILD SUCCESS                              
+< ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ >
+[0m

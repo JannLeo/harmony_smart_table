@@ -1,0 +1,35 @@
+# Copyright (c) 2020 Huawei Device Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+static_library("iot_hardware") {
+    sources = [
+        "led_app.c",
+        "beep_app.c",
+        #"traffic_light_demo.c",
+        # "child_press3s.c",
+        # "child_app.c",
+        # "Timer_example.c",
+        #"child_press3s copy 2.c",
+        #"test.c",
+        "beep_app_only.c"
+
+    ]
+
+    include_dirs = [
+        "//utils/native/lite/include",
+        "//kernel/liteos_m/components/cmsis/2.0",
+        "//base/iot_hardware/interfaces/kits/wifiiot_lite",
+        "//ohos_bundles/@ohos/iot_controller/hals/wifiiot_lite",
+        "//applications/sample/wifi-iot/app/iothardware/include",
+    ]
+}

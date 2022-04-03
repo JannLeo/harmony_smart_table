@@ -1,0 +1,8 @@
+static_library("myapp") {
+    sources = [
+        "hello_world.c"
+    ]
+    include_dirs = [
+        "//utils/native/lite/include"
+    ]
+}

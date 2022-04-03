@@ -1,0 +1,37 @@
+config_file = [
+    "libs/libnetcfgdevicesdk.a",
+    "libs/libhilinkadapter_3861.a"
+]
+
+copy("config") {
+    sources = config_file
+    outputs = ["//out/wifiiot/libs/{{source_file_part}}"]
+}
+static_library("fan") {
+    sources = [
+        # "src/netcfg.c",
+        # "src/fan.c",
+        # "src/led.c",
+        "src/E53_IA1.c",
+        # "src/iot_hal.c"
+    ]
+
+    include_dirs = [
+        "//applications/sample/wifi-iot/app/fan/include",
+        "//base/iot_hardware/peripheral/interfaces/kits",
+        "//foundation/communication/wifi_lite/interfaces/wifiservice",
+        "//kernel/liteos_m/kal",
+        "//kernel/liteos_m/cmsis",
+        "//third_party/mbedtls/include/mbedtls",
+        "//utils/native/lite/include",
+        "//device/hisilicon/hispark_pegasus/sdk_liteos/third_party/lwip_sack/include",
+        "//device/hisilicon/hispark_pegasus/sdk_liteos/platform/os/Huawei_LiteOS/components/lib/libsec/include",
+        "//device/hisilicon/hispark_pegasus/sdk_liteos/include",
+        "//base/iot_hardware/interfaces/kits/wifiiot_lite",
+        "//kernel/liteos_m/components/cmsis/2.0",
+
+
+        "//ohos_bundles/@ohos/iot_controller/hals/wifiiot_lite"
+        
+    ]
+}

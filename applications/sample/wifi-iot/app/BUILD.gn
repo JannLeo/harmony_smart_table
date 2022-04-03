@@ -1,0 +1,22 @@
+import("//build/lite/config/component/lite_component.gni")
+
+lite_component("app") {
+    features = [
+        #"my_first_app:myapp",
+        #"my_led:my_led",
+        #"iothardware:iot_hardware",
+        # "D1_iot_wifi_ap:wifi_ap",
+        #"D2_iot_wifi_sta_connect:Wifi_sta_connect",
+        #"demolink:example_demolink",
+        # "startup:startup",
+        # "wendu:wendu",
+        #"music_app:music_app",
+        #"demo111:demo111",
+        #"easy_wifi:easy_wifi",
+        #"allinone:allinone",
+        "nfc_ljn:nfc_example",
+        #"mqtt_demo:mqtt_test_at"
+        # "fan:fan"
+        
+    ]
+}

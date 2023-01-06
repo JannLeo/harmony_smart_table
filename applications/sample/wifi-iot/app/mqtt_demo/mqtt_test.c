@@ -82,7 +82,11 @@ void mqtt_task(void)
                                          &payload_in, &payloadlen_in, mqtt_buf, mqtt_buflen); // 发送数据
             printf("message arrived %.*s\n", payloadlen_in, payload_in);
             receive_word = (unsigned char *)malloc(3);
-            strcpy_s((char *)receive_word, strlen((char *)receive_word) + 1, "001");
+            // osDelay(100);
+            receive_word [0]='0';
+            receive_word[1] = '0';
+            receive_word[2] = '1';
+            // strcpy_s((char *)receive_word, strlen((char *)receive_word) + 1, "001");
             printf("payloadlen_in=%d !\r\n", payloadlen_in);
             printf("payload_in=%.*s\n", payloadlen_in, payload_in);
             if (payloadlen_in == 3)
@@ -140,7 +144,7 @@ int mqtt_subscribe(char *topic)
 int mqtt_init(void)
 { // MQTT初始化开始连接
     MQTTPacket_connectData data = MQTTPacket_connectData_initializer;
-    char *host = "192.168.210.123"; // 主机地址
+    char *host = "192.168.250.123"; // 主机地址
     int port = 1883;                // 端口
 
     mqtt_sock = transport_open(host, port);

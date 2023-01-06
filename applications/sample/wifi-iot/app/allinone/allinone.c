@@ -14,16 +14,19 @@
 #define I2C_TASK_STACK_SIZE 1024 * 8
 #define I2C_TASK_PRIO 25
 osSemaphoreId_t sem1; //信号量变量
-
+int sum = 0;
 /*****任务一：按键功能，蜂鸣亮灯等*****/
 void thread1(void)
 {
     while (1)
     {
+        
         osSemaphoreAcquire(sem1, osWaitForever);
-        int sum = 0;
+        printf("first\n");
         printf("This is BearPi Harmony Thread1----%d\r\n", sum++);
         led_app();
+        usleep(1000000);
+        printf("ready to beep!\n");
         beep_only();
         I2CTask();
         usleep(1000000);
@@ -35,9 +38,11 @@ void thread1(void)
 /*****任务二：建立AP与STA并配网*****/
 void thread2(void)
 {
-    int sum = 0;
-    //等待sem1信号量
     osSemaphoreAcquire(sem1, osWaitForever);
+    usleep(1000000);
+    printf("thread2\n");
+    //等待sem1信号量
+    
     printf("This is BearPi Harmony Thread2----%d\r\n", sum++);
     WifiHotspotTask();
     usleep(500000);
@@ -48,10 +53,12 @@ void thread2(void)
 /*****任务三：mqtt*****/
 void thread3(void)
 {
-    // while(1){
-    int sum = 0;
-    //等待sem1信号量
     osSemaphoreAcquire(sem1, osWaitForever);
+    usleep(1000000);
+    // while(1){
+    printf("thread3\n");
+    //等待sem1信号量
+    
     printf("This is BearPi Harmony Thread3----%d\r\n", sum++);
     mqtt_test();
     usleep(500000);
@@ -62,9 +69,11 @@ void thread3(void)
 /*****任务四：nfc*****/
 void thread4(void)
 {
-    int sum = 0;
-    // while(1){
     osSemaphoreAcquire(sem1, osWaitForever);
+    usleep(1000000);
+    printf("thread4\n");
+    // while(1){
+   
     printf("This is BearPi Harmony Thread4----%d\r\n", sum++);
     I2CTask();
     usleep(500000);
@@ -84,7 +93,7 @@ static void Thread_example(void)
     attr.stack_mem = NULL;
     attr.stack_size = 20480;
     attr.priority = 25;
-
+    usleep(1000000);
     if (osThreadNew((osThreadFunc_t)thread1, NULL, &attr) == NULL)
     {
         printf("Falied to create thread1!\n");

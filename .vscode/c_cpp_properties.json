@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "!!! WARNING !!! AUTO-GENERATED FILE, PLEASE DO NOT MODIFY IT",
+            "includePath": [
+                "${default}",
+                "${workspaceFolder}/utils/native/lite/include"
+            ]
+        },
+        {
+            "name": "Linux-debug",
+            "includePath": [
+                "/home/jannleo/Documents/DevEco/Projects/demo2/include",
+                "/home/jannleo/Documents/DevEco/Projects/demo2/src",
+                ""
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true,
+                "path": [
+                    "/home/jannleo/Documents/DevEco/Projects/demo2/include",
+                    "/home/jannleo/Documents/DevEco/Projects/demo2/src",
+                    ""
+                ]
+            },
+            "defines": [
+                ""
+            ],
+            "intelliSenseMode": "clang-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "compilerArgs": [
+                ""
+            ]
+        }
+    ],
+    "version": 4
+}

@@ -33,7 +33,13 @@ rule copy
   command = cp -afd ${in} ${out}
   description = COPY ${in} ${out}
 
-build obj/applications/sample/wifi-iot/app/app.stamp: stamp ./libs/libnfc_example.a
+build obj/applications/sample/wifi-iot/app/app.stamp: stamp ./libs/libiot_hardware.a obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp ./libs/liballinone.a ./libs/libnfc_example.a ./libs/libmqtt_test_at.a
+subninja obj/applications/sample/wifi-iot/app/allinone/allinone.ninja
+build obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp: stamp ./libs/libwifi_demo.a ./libs/libeasy_wifi.a
+subninja obj/applications/sample/wifi-iot/app/easy_wifi/demo/wifi_demo.ninja
+subninja obj/applications/sample/wifi-iot/app/easy_wifi/src/easy_wifi.ninja
+subninja obj/applications/sample/wifi-iot/app/iothardware/iot_hardware.ninja
+subninja obj/applications/sample/wifi-iot/app/mqtt_demo/mqtt_test_at.ninja
 subninja obj/applications/sample/wifi-iot/app/nfc_ljn/nfc_example.ninja
 subninja obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite.ninja
 build obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp: stamp ./libs/libhilog_lite.a

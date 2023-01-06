@@ -43,27 +43,20 @@ void *Beep(const char *arg)
 void beep_only(void)
 {
     // osThreadAttr_t attr;
+    // // WIFI-IOT version pwm=1
     GpioInit();
     IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT);
     GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
-    PwmInit(WIFI_IOT_PWM_PORT_PWM0);
+    PwmInit(WIFI_IOT_PWM_PORT_PWM1);
 
     WatchDogDisable();
-    PwmStart(WIFI_IOT_PWM_PORT_PWM0, 20 * 1000, 40 * 1000);
+    PwmStart(WIFI_IOT_PWM_PORT_PWM1, 20 * 1000, 40 * 1000);
     usleep(1000000);
-    PwmStop(WIFI_IOT_PWM_PORT_PWM0);
-    // attr.name = "Beep";
-    // attr.attr_bits = 0U;
-    // attr.cb_mem = NULL;
-    // attr.cb_size = 0U;
-    // attr.stack_mem = NULL;
-    // attr.stack_size = LED_TASK_STACK_SIZE;
-    // attr.priority = Beep_Task_PRIO;
+    PwmStop(WIFI_IOT_PWM_PORT_PWM1);
 
-    // if (osThreadNew((osThreadFunc_t)Beep, NULL, &attr) == NULL)
-    // {
-    //     printf("[Beep] Falied to create LedTask!\n");
-    // }
+
+    printf("beep!!\n");
+   
 }
 
 // APP_FEATURE_INIT(beep_only);

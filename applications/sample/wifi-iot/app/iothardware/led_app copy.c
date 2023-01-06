@@ -109,7 +109,7 @@ static void LedExampleEntry(void)
                         Button_demo1, NULL);
     IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
     GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
-
+    
     attr.name = "LedTask";
     attr.attr_bits = 0U;
     attr.cb_mem = NULL;

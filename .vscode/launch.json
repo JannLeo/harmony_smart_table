@@ -1,0 +1,18 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        // Deveco auto-generated start
+        {
+            "type": "platformio-debug",
+            "request": "launch",
+            "name": "hi3861: DevEco GDB Debug",
+            "executable": "/home/jannleo/Documents/DevEco/Projects/demo2/out/wifiiot/Hi3861_wifiiot_app.out",
+            "toolchainBinDir": "/usr/bin",
+            "projectEnvName": "hi3861",
+            "preLaunchTask": "deveco: run debug server - hi3861",
+            "internalConsoleOptions": "openOnSessionStart"
+        }
+        // Deveco auto-generated end
+
+    ]
+}

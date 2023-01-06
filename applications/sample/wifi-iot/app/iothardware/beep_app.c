@@ -69,7 +69,7 @@ void beep_on(void)
     PwmInit(WIFI_IOT_PWM_PORT_PWM0);
 
     WatchDogDisable();
-    printf("hello\r\n");
+    printf("beep!!\r\n");
     attr.name = "BeepTask";
     attr.attr_bits = 0U;
     attr.cb_mem = NULL;

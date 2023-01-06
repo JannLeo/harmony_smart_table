@@ -63,7 +63,7 @@ static void E53_IA1_IO_Init(void)
  ***************************************************************/
 void Init_BH1750(void)
 {
-    uint8_t send_data[1] = {0x01};
+     WifiIotI2cData send_data[1] = {0x01};
     I2cWrite(WIFI_IOT_I2C_IDX_1, (BH1750_Addr << 1) | 0x00, &send_data, sizeof(send_data));
 }
 
@@ -75,8 +75,7 @@ void Init_BH1750(void)
  ***************************************************************/
 void Start_BH1750(void)
 {
-    uint8_t send_data[1] = {0x10};
-    ;
+     WifiIotI2cData send_data[1] = {0x10};
     I2cWrite(WIFI_IOT_I2C_IDX_1, (BH1750_Addr << 1) | 0x00, &send_data, sizeof(send_data));
 }
 
@@ -88,7 +87,7 @@ void Start_BH1750(void)
  ***************************************************************/
 void SHT30_reset(void)
 {
-    uint8_t send_data[2] = {0x30, 0xA2};
+     WifiIotI2cData send_data[2] = {0x30, 0xA2};
     I2cWrite(WIFI_IOT_I2C_IDX_1, (SHT30_Addr << 1) | 0x00, &send_data, sizeof(send_data));
 }
 
@@ -100,7 +99,7 @@ void SHT30_reset(void)
  ***************************************************************/
 void Init_SHT30(void)
 {
-    uint8_t send_data[2] = {0x22, 0x36};
+     WifiIotI2cData send_data[2] = {0x22, 0x36};
     I2cWrite(WIFI_IOT_I2C_IDX_1, (SHT30_Addr << 1) | 0x00, &send_data, sizeof(send_data));
 }
 

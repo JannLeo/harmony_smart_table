@@ -42,19 +42,19 @@ void Button_demo2(char *arg)
     (void)arg;
 
     enum LedState nextstate = LED_SPARK;
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_GPIO_DIR_OUT);
     switch (g_ledState)
     {
     case LED_ON:
         nextstate = LED_OFF;
-        GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+        GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 0);
         usleep(LED_INTERVAL_TIME_US);
         printf("led on\r\n");
         break;
     case LED_OFF:
         nextstate = LED_ON;
-        GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 1);
+        GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 1);
         usleep(LED_INTERVAL_TIME_US);
         printf("led off\r\n");
         break;
@@ -69,14 +69,27 @@ void Button_demo2(char *arg)
 void led_app(void)
 {
     // osThreadAttr_t attr;
-    GpioInit();
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
-    IoSetPull(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_IO_PULL_UP);
-    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_INT_TYPE_EDGE, WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
-                        Button_demo2, NULL);
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+    // //WIFI-IOT version
+    // GpioInit();
+    // IoSetFunc(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
+    // IoSetPull(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_IO_PULL_UP);
+    // GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_INT_TYPE_EDGE, WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
+    //                     Button_demo2, NULL);
+    // IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
+    // GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
 
-    GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+    // GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+    // usleep(LED_INTERVAL_TIME_US);
+
+    //BearPiNano version
+    GpioInit();
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_11, WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
+    IoSetPull(WIFI_IOT_IO_NAME_GPIO_11, WIFI_IOT_IO_PULL_UP);
+    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_11, WIFI_IOT_INT_TYPE_EDGE, WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
+                        Button_demo2, NULL);
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_GPIO_DIR_OUT);
+
+    GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 0);
     usleep(LED_INTERVAL_TIME_US);
 }

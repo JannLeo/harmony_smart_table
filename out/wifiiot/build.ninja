@@ -12,6 +12,7 @@ subninja toolchain.ninja
 
 build acts: phony obj/test/xts/acts/acts.stamp
 build acts_compoment: phony obj/test/xts/acts/acts_compoment.stamp
+build allinone: phony ./libs/liballinone.a
 build app: phony obj/applications/sample/wifi-iot/app/app.stamp
 build authmanager: phony ./libs/libauthmanager.a
 build bootstrap: phony ./libs/libbootstrap.a
@@ -32,9 +33,11 @@ build hal_token_static: phony ./libs/libhal_token_static.a
 build hilog_lite: phony ./libs/libhilog_lite.a
 build hilog_lite_ndk: phony obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp
 build hiview_lite: phony ./libs/libhiview_lite.a
+build iot_hardware: phony ./libs/libiot_hardware.a
 build iothardware_ndk: phony obj/base/iot_hardware/frameworks/wifiiot_lite/src/iothardware_ndk.stamp
 build kal: phony ./libs/libkal.a
 build kv_store: phony obj/utils/native/lite/kv_store/kv_store.stamp
+build mqtt_test_at: phony ./libs/libmqtt_test_at.a
 build native_file: phony ./libs/libnative_file.a
 build ndk: phony obj/build/lite/ndk.stamp
 build nfc_example: phony ./libs/libnfc_example.a
@@ -60,12 +63,21 @@ build trans_service: phony ./libs/libtrans_service.a
 build trans_service_ndk: phony obj/foundation/communication/services/softbus_lite/trans_service_ndk.stamp
 build utils_kv_store: phony ./libs/libutils_kv_store.a
 build wifi: phony obj/foundation/communication/frameworks/wifi_lite/wifi.stamp
+build wifi_demo: phony ./libs/libwifi_demo.a
 build wifiiot_sdk: phony obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp
 build wifiservice: phony ./libs/libwifiservice.a
 build wifiservice_ndk: phony obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp
 build xdevice: phony obj/test/xdevice/xdevice.stamp
 build applications/sample/wifi-iot/app$:app: phony obj/applications/sample/wifi-iot/app/app.stamp
 build applications/sample/wifi-iot/app: phony obj/applications/sample/wifi-iot/app/app.stamp
+build applications/sample/wifi-iot/app/allinone$:allinone: phony ./libs/liballinone.a
+build applications/sample/wifi-iot/app/allinone: phony ./libs/liballinone.a
+build applications/sample/wifi-iot/app/easy_wifi$:easy_wifi: phony obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp
+build applications/sample/wifi-iot/app/easy_wifi: phony obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp
+build applications/sample/wifi-iot/app/easy_wifi/demo$:wifi_demo: phony ./libs/libwifi_demo.a
+build applications/sample/wifi-iot/app/easy_wifi/src$:easy_wifi: phony ./libs/libeasy_wifi.a
+build applications/sample/wifi-iot/app/iothardware$:iot_hardware: phony ./libs/libiot_hardware.a
+build applications/sample/wifi-iot/app/mqtt_demo$:mqtt_test_at: phony ./libs/libmqtt_test_at.a
 build applications/sample/wifi-iot/app/nfc_ljn$:nfc_example: phony ./libs/libnfc_example.a
 build base/hiviewdfx/frameworks/hilog_lite/mini$:hilog_lite: phony ./libs/libhilog_lite.a
 build base/hiviewdfx/frameworks/hilog_lite/mini$:hilog_lite_ndk: phony obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp
@@ -144,6 +156,12 @@ build vendor/huawei/wifi-iot/hals/utils/token$:hal_token_static: phony ./libs/li
 
 build all: phony $
     obj/applications/sample/wifi-iot/app/app.stamp $
+    ./libs/liballinone.a $
+    obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp $
+    ./libs/libwifi_demo.a $
+    ./libs/libeasy_wifi.a $
+    ./libs/libiot_hardware.a $
+    ./libs/libmqtt_test_at.a $
     ./libs/libnfc_example.a $
     ./libs/libhilog_lite.a $
     obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp $

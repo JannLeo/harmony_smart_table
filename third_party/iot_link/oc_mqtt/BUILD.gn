@@ -1,0 +1,46 @@
+# Copyright (c) 2020 Nanjing Xiaoxiongpai Intelligent Technology Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+static_library("oc_mqtt") {
+    sources = [
+        "oc_mqtt_al/oc_mqtt_al.c",
+        "oc_mqtt_profile_v5/oc_mqtt_profile.c",
+        "oc_mqtt_profile_v5/oc_mqtt_profile_package.c",
+        "oc_mqtt_profile_v5/oc_mqtt_event.c",
+        "oc_mqtt_tiny_v5/oc_mqtt_tiny.c",
+        "oc_mqtt_tiny_v5/hmac.c",
+    ]
+    
+    cflags = [ "-Wno-unused-variable" ]
+    cflags += [ "-Wno-unused-but-set-variable" ]
+    cflags += [ "-Wno-unused-parameter" ]
+
+    include_dirs = [
+        "../inc",
+        "../link_misc",
+        "../queue",
+        "//third_party/mbedtls/include/",
+        "../network/dtls/mbedtls/mbedtls_port",
+        "//kernel/liteos_m/components/cmsis/2.0",
+        "//third_party/cJSON",
+        "oc_mqtt_tiny_v5",
+        "oc_mqtt_profile_v5",
+        "oc_mqtt_al",
+      
+    ]
+
+    defines = [
+        "CONFIG_OC_MQTT_TINY_ENABLE=1"
+    ]
+
+}

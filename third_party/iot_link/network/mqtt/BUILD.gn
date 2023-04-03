@@ -1,0 +1,58 @@
+# Copyright (c) 2020 Nanjing Xiaoxiongpai Intelligent Technology Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+mqtt_paho_inc = [
+    "paho_mqtt/paho/MQTTClient-C/src",
+    "paho_mqtt/paho/MQTTPacket/src",
+    "paho_mqtt/port",
+    "../../inc",
+    "//kernel/liteos_m/components/cmsis/2.0",
+    "//vendor/hisi/hi3861/hi3861/third_party/lwip_sack/include/",
+]
+
+
+mqtt_paho_src = [
+    "mqtt_al/mqtt_al.c",
+    "paho_mqtt/port/paho_mqtt_port.c",
+    "paho_mqtt/port/paho_osdepends.c",
+    "paho_mqtt/paho/MQTTClient-C/src/MQTTClient.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTConnectClient.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTConnectServer.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTDeserializePublish.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTFormat.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTPacket.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTSerializePublish.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTSubscribeClient.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTSubscribeServer.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTUnsubscribeClient.c",
+    "paho_mqtt/paho/MQTTPacket/src/MQTTUnsubscribeServer.c",
+    
+
+]
+mqtt_paho_defs = [
+    "MQTTCLIENT_PLATFORM_HEADER=paho_osdepends.h",
+
+]
+
+mqtt_cflags = [
+    "-Wno-sign-compare",
+    "-Wno-unused-parameter",
+    "-Wno-unused-function",
+]
+
+static_library("mqtt") {
+        cflags = mqtt_cflags
+        defines = mqtt_paho_defs
+        sources = mqtt_paho_src
+        include_dirs = mqtt_paho_inc
+}

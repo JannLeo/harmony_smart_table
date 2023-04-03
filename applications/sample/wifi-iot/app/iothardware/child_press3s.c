@@ -37,27 +37,27 @@ static int times = 0;
 enum LedState nextstate=LED_ON;
 //enum LedState g_ledState = LED_SPARK;
 enum LedState g_ledState = LED_OFF;
+osTimerId_t id1;
 static void *ChildLock(const char *arg)
 {
     (void)arg;
     while (1) {
-        IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
-        GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+        
         switch (g_ledState) {
             case LED_ON:
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 1);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 1);
                 usleep(LED_INTERVAL_TIME_US);
                 printf("0\r\n");
                 break;
             case LED_OFF:
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 0);
                 usleep(LED_INTERVAL_TIME_US);
                 printf("1\r\n");
                 break;
             case LED_SPARK:
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 0);
                 usleep(LED_INTERVAL_TIME_US);
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 1);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 1);
                 usleep(LED_INTERVAL_TIME_US);
                 printf("2\r\n");
                 break;
@@ -83,13 +83,13 @@ void Timer1_Callback(void *arg)
 static void Button_demo1(char *arg)
 {
     (void)arg;
-    osTimerId_t id1;
+    
     uint32_t timerDelay;
     osStatus_t status;
     
     exec1 = 1U;
     id1 = osTimerNew(Timer1_Callback, osTimerPeriodic, &arg, NULL);
-    printf("中断,id1= %d ！\r\n",id1);
+    printf("中断,id1= %d \r\n",id1);
     if (id1 == NULL)
     {
         printf("[Timer Test] osTimerNew(periodic timer) failed.\r\n");
@@ -131,13 +131,13 @@ static void Child_lock_ex1(void)
 {
     osThreadAttr_t attr;
     GpioInit();
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_IO_FUNC_GPIO_2_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_GPIO_DIR_OUT);
     
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_GPIO_DIR_IN);
-    IoSetPull(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_IO_PULL_UP);
-    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_IO_FUNC_GPIO_11_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_GPIO_DIR_IN);
+    IoSetPull(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_IO_PULL_UP);
+    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
         Button_demo1,NULL);
     
     WatchDogDisable();

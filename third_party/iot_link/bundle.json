@@ -1,0 +1,24 @@
+{
+    "name": "@bearpi/hm_nano_iot_link",
+    "version": "1.0.1",
+    "description": "iot_link",
+    "publishAs": "code-segment",
+    "scripts": {
+        "install": "DEST_PATH=${DEP_BUNDLE_BASE}/third_party/iot_link && mkdir -p $DEST_PATH && cp -r ./* $DEST_PATH"
+    },
+    "keywords": [
+        "bearpi",
+        "iotlink"
+    ],
+    "author": {},
+    "repository": "",
+    "license": "BSD-3-Clause License",
+    "tags": [
+        "third_party"
+    ],
+    "ohos": {
+        "os": "0.0.1",
+        "kernel": "",
+        "board": ""
+    }
+}

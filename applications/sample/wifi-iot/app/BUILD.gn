@@ -10,14 +10,18 @@ lite_component("app") {
         #"demolink:example_demolink",
         # "startup:startup",
         # "wendu:wendu",
-        #"music_app:music_app",
+        # "music_app:music_app",
         #"demo111:demo111",
-        "iothardware:iot_hardware",
-        "easy_wifi:easy_wifi",
-        "allinone:allinone",
-        "nfc_ljn:nfc_example",
-        "mqtt_demo:mqtt_test_at",
         # "B3_basic_pwm_led:pwm_example",
+        "SmartTable:SmartTable",
+        # "D6_iot_cloud_oc:oc_mqtt",
+
+        # "iothardware:iot_hardware",
+        # "easy_wifi:easy_wifi",
+        # "allinone:allinone",
+        # "nfc_ljn:nfc_example",
+        # "mqtt_demo:mqtt_test_at",
+
         
     ]
 }

@@ -24,6 +24,7 @@
 #include "wifiiot_gpio_ex.h"
 #include "wifiiot_pwm.h"
 #include "wifiiot_watchdog.h"
+
 #define LED_INTERVAL_TIME_US 300000
 #define LED_TASK_STACK_SIZE 1024
 #define Beep_Task_PRIO 24
@@ -45,16 +46,16 @@ void beep_only(void)
     // osThreadAttr_t attr;
     // // WIFI-IOT version pwm=1
     GpioInit();
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_8, WIFI_IOT_IO_FUNC_GPIO_8_PWM1_OUT);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_8, WIFI_IOT_GPIO_DIR_OUT);
     PwmInit(WIFI_IOT_PWM_PORT_PWM1);
-
+    printf("-------------------------beep_app_only---------------------\r\n");
     WatchDogDisable();
     PwmStart(WIFI_IOT_PWM_PORT_PWM1, 20 * 1000, 40 * 1000);
-    usleep(1000000);
+    usleep(500000);
     PwmStop(WIFI_IOT_PWM_PORT_PWM1);
 
-
+    
     printf("beep!!\n");
    
 }

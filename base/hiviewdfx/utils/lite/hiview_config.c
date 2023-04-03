@@ -19,7 +19,7 @@
 #include "hiview_config.h"
 
 HiviewConfig g_hiviewConfig = {
-    .outputOption = OUTPUT_OPTION_FLOW,
+    .outputOption = OUTPUT_OPTION_DEBUG,
     .level = HILOG_LV_DEBUG,
     .logSwitch = HIVIEW_FEATURE_ON,
     .dumpSwitch = HIVIEW_FEATURE_OFF,

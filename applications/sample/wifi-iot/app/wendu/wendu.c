@@ -8,15 +8,15 @@
 #include "wifiiot_i2c.h"
 #include "wifiiot_errno.h"
 
-#define AHT20_I2C_IDX WIFI_IOT_I2C_IDX_0
-
+#define AHT20_I2C_IDX WIFI_IOT_I2C_IDX_1
+// #define AHT20_I2C_IDX WIFI_IOT_I2C_IDX_0
 #define AHT20_STARTUP_TIME     20*1000 // 上电启动时间
 #define AHT20_CALIBRATION_TIME 40*1000 // 初始化（校准）时间
 #define AHT20_MEASURE_TIME     75*1000 // 测量时间
 
 #define AHT20_DEVICE_ADDR   0x38
-#define AHT20_READ_ADDR     ((0x38<<1)|0x1)
-#define AHT20_WRITE_ADDR    ((0x38<<1)|0x0)
+#define AHT20_READ_ADDR     ((0x38<<1)|0x1) //读指令
+#define AHT20_WRITE_ADDR    ((0x38<<1)|0x0) //写指令
 
 #define AHT20_CMD_CALIBRATION       0xBE // 初始化（校准）命令
 #define AHT20_CMD_CALIBRATION_ARG0  0x08
@@ -42,19 +42,19 @@
  *      RH = Srh / 2^20 * 100%
  *      T  = St  / 2^20 * 200 - 50
  **/
-#define AHT20_STATUS_BUSY_SHIFT 7       // bit[7] Busy indication
+#define AHT20_STATUS_BUSY_SHIFT 7       // bit[7] 忙闲指示
 #define AHT20_STATUS_BUSY_MASK  (0x1<<AHT20_STATUS_BUSY_SHIFT)
 #define AHT20_STATUS_BUSY(status) ((status & AHT20_STATUS_BUSY_MASK) >> AHT20_STATUS_BUSY_SHIFT)
 
-#define AHT20_STATUS_MODE_SHIFT 5       // bit[6:5] Mode Status
+#define AHT20_STATUS_MODE_SHIFT 5       // bit[6:5] 模式设置
 #define AHT20_STATUS_MODE_MASK  (0x3<<AHT20_STATUS_MODE_SHIFT)
 #define AHT20_STATUS_MODE(status) ((status & AHT20_STATUS_MODE_MASK) >> AHT20_STATUS_MODE_SHIFT)
 
-                                        // bit[4] Reserved
-#define AHT20_STATUS_CALI_SHIFT 3       // bit[3] CAL Enable
+                                        // bit[4] 保留
+#define AHT20_STATUS_CALI_SHIFT 3       // bit[3] 使能位
 #define AHT20_STATUS_CALI_MASK  (0x1<<AHT20_STATUS_CALI_SHIFT)
 #define AHT20_STATUS_CALI(status) ((status & AHT20_STATUS_CALI_MASK) >> AHT20_STATUS_CALI_SHIFT)
-                                        // bit[2:0] Reserved
+                                        // bit[2:0] 保留
 
 #define AHT20_STATUS_RESPONSE_MAX 6
 
@@ -168,7 +168,7 @@ uint32_t AHT20_GetMeasureResult(float* temp, float* humi)
     if (retval != WIFI_IOT_SUCCESS) {
         return retval;
     }
-
+    //buffer[0]为状态 测试Bit[7]是否测量完成
     for (i = 0; AHT20_STATUS_BUSY(buffer[0]) && i < AHT20_MAX_RETRY; i++) {
         printf("AHT20 device busy, retry %d/%d!\r\n", i, AHT20_MAX_RETRY);
         usleep(AHT20_MEASURE_TIME);
@@ -182,6 +182,7 @@ uint32_t AHT20_GetMeasureResult(float* temp, float* humi)
         return WIFI_IOT_FAILURE;
     }
 
+    //humiraw为32位  buffer[1]与buffer[2]为全部 buffer[3]为4位
     uint32_t humiRaw = buffer[1];
     humiRaw = (humiRaw << 8) | buffer[2];
     humiRaw = (humiRaw << 4) | ((buffer[3] & 0xF0) >> 4);

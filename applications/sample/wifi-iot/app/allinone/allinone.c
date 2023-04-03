@@ -10,43 +10,64 @@
 #include <mqtt_test.h>
 
 #include "nfc_ljn.h"
+// #include "music.h"
 
 #define I2C_TASK_STACK_SIZE 1024 * 8
 #define I2C_TASK_PRIO 25
 osSemaphoreId_t sem1; //信号量变量
+osSemaphoreId_t sem2; //信号量变量
 int sum = 0;
+int init=0;   //开机状态    刚开机为1
+extern int LED_states_leo;  //蜂鸣状态与否
 /*****任务一：按键功能，蜂鸣亮灯等*****/
 void thread1(void)
-{
-    while (1)
+{   
+    
+    
+    osSemaphoreAcquire(sem1, osWaitForever);
+    for(int i=0;;i++)
     {
         
-        osSemaphoreAcquire(sem1, osWaitForever);
-        printf("first\n");
+        // if(init){//如果刚开机，就获取信号量
+        //     init=1;
+        //     osSemaphoreAcquire(sem1, osWaitForever);
+        // }
+        
+        // osSemaphoreAcquire(sem2, osWaitForever);
+        printf("-----------------------------Thread 1 start!---------------------------------------\r\n");
+        
         printf("This is BearPi Harmony Thread1----%d\r\n", sum++);
+        // usleep(1000000);
+        // BeeperMusicTask();
+        //瞬时 中断，所以不会继续执行，
         led_app();
-        usleep(1000000);
-        printf("ready to beep!\n");
-        beep_only();
-        I2CTask();
-        usleep(1000000);
-        //此处若只申请一次信号量，则Thread_Semaphore2和Thread_Semaphore3会交替运行。
-        osSemaphoreRelease(sem1);
+        // usleep(1000000);
+        printf("+++++++++++++++++++++++++++++++++++LEDstatus= %d ++++++++++++++++++++++++++\r\n",LED_states_leo);
+        // I2CTask();    //NFC功能
+        usleep(1000000); 
+        printf("-----------------------------while in Thread 1 loop!---------------------------------------\r\n");
+        
+        
     }
+    osSemaphoreRelease(sem1);
+    usleep(1000000);
+    printf("-----------------------------Thread 1 final!---------------------------------------\r\n");
 }
+
 
 /*****任务二：建立AP与STA并配网*****/
 void thread2(void)
 {
     osSemaphoreAcquire(sem1, osWaitForever);
+    printf("-----------------------------Thread 2 start!---------------------------------------\r\n");
     usleep(1000000);
     printf("thread2\n");
     //等待sem1信号量
     
     printf("This is BearPi Harmony Thread2----%d\r\n", sum++);
-    WifiHotspotTask();
+    WifiHotspotTask();//easy_wifi
     usleep(500000);
-    printf("Thread2 End!----\r\n");
+    printf("-----------------------------Thread 2 final!---------------------------------------\r\n");
     osSemaphoreRelease(sem1);
 }
 
@@ -54,14 +75,16 @@ void thread2(void)
 void thread3(void)
 {
     osSemaphoreAcquire(sem1, osWaitForever);
+    printf("-----------------------------Thread 3 start!---------------------------------------\r\n");
     usleep(1000000);
     // while(1){
     printf("thread3\n");
     //等待sem1信号量
     
     printf("This is BearPi Harmony Thread3----%d\r\n", sum++);
-    mqtt_test();
+    mqtt_test(); //mqtt_demo
     usleep(500000);
+    printf("-----------------------------Thread 3 final!---------------------------------------\r\n");
     osSemaphoreRelease(sem1);
     // }
 }
@@ -70,6 +93,7 @@ void thread3(void)
 void thread4(void)
 {
     osSemaphoreAcquire(sem1, osWaitForever);
+    printf("-----------------------------Thread 4 start!---------------------------------------\r\n");
     usleep(1000000);
     printf("thread4\n");
     // while(1){
@@ -77,6 +101,7 @@ void thread4(void)
     printf("This is BearPi Harmony Thread4----%d\r\n", sum++);
     I2CTask();
     usleep(500000);
+    printf("-----------------------------Thread 4 final!---------------------------------------\r\n");
     osSemaphoreRelease(sem1);
     // }
 }
@@ -94,11 +119,14 @@ static void Thread_example(void)
     attr.stack_size = 20480;
     attr.priority = 25;
     usleep(1000000);
+    sem1 = osSemaphoreNew(4, 2, NULL);  //20230304
+
+    //按键启动功能
     if (osThreadNew((osThreadFunc_t)thread1, NULL, &attr) == NULL)
     {
         printf("Falied to create thread1!\n");
     }
-
+    
     attr.name = "thread2";
 
     if (osThreadNew((osThreadFunc_t)thread2, NULL, &attr) == NULL)
@@ -117,7 +145,7 @@ static void Thread_example(void)
     {
         printf("Falied to create thread4!\n");
     }
-    sem1 = osSemaphoreNew(4, 0, NULL);
+    // sem1 = osSemaphoreNew(4, 0, NULL);
     if (sem1 == NULL)
     {
         printf("Falied to create Semaphore1!\n");

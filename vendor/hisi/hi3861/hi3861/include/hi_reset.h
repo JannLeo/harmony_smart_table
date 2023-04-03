@@ -47,6 +47,8 @@ typedef enum {
     HI_SYS_REBOOT_CAUSE_USR0,
     HI_SYS_REBOOT_CAUSE_USR1,
     HI_SYS_REBOOT_CAUSE_AT_BUSY,
+    HI_SYS_REBOOT_CAUSE_TEMP,   /**< temperature too high */
+    HI_SYS_REBOOT_CAUSE_MEMORY, /**< memory too low or resources error. */
     HI_SYS_REBOOT_CAUSE_MAX = HI_SYS_REBOOT_CAUSE_USR_END + 1,
 } hi_sys_reboot_cause;
 

@@ -21,6 +21,7 @@ lite_component("sdk") {
     deps = [ "//kernel/liteos_m/components/cmsis",
              "//kernel/liteos_m/components/kal",
              "//third_party/cJSON:cjson_static",
-             "//third_party/pahomqtt:pahomqtt_static",
+            #  "//third_party/paho_mqtt:pahomqtt_static",
+            "//third_party/iot_link/network/mqtt"
     ]
 }

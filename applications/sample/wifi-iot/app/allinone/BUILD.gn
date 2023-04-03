@@ -25,6 +25,7 @@ static_library("allinone") {
         "//applications/sample/wifi-iot/app/iothardware/include",
         "//applications/sample/wifi-iot/app/easy_wifi/include",
         "//applications/sample/wifi-iot/app/mqtt_demo",
-        "//applications/sample/wifi-iot/app/nfc_ljn"
+        "//applications/sample/wifi-iot/app/nfc_ljn",
+        # "//applications/sample/wifi-iot/app/music_app/include"
     ]
 }

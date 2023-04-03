@@ -23,7 +23,7 @@
 #include "wifiiot_gpio_ex.h"
 #include "wifiiot_pwm.h"
 #include "wifiiot_watchdog.h"
-
+#include "app_demo_sysinfo.h"
 #define LED_INTERVAL_TIME_US 300000
 #define LED_TASK_STACK_SIZE 1024*4
 #define LED_TASK_PRIO 25
@@ -41,23 +41,23 @@ static void *ChildLock(const char *arg)
 {
     (void)arg;
     while (1) {
-        IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
-        GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+        IoSetFunc(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_IO_FUNC_GPIO_2_GPIO);
+        GpioSetDir(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_GPIO_DIR_OUT);
         switch (g_ledState) {
             case LED_ON:
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 1);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 1);
                 usleep(LED_INTERVAL_TIME_US);
                 printf("0\r\n");
                 break;
             case LED_OFF:
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 0);
                 usleep(LED_INTERVAL_TIME_US);
                 printf("1\r\n");
                 break;
             case LED_SPARK:
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 0);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 0);
                 usleep(LED_INTERVAL_TIME_US);
-                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_9, 1);
+                GpioSetOutputVal(WIFI_IOT_IO_NAME_GPIO_2, 1);
                 usleep(LED_INTERVAL_TIME_US);
                 printf("2\r\n");
                 break;
@@ -79,13 +79,13 @@ static void *ChildLock(const char *arg)
                 osDelay(100);
                 if(times==2){
                     printf("按键时长不够，失败！\r\n");
-                    GpioSetIsrMode(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW);
+                    GpioSetIsrMode(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW);
                     times=0;
                 }    
             }
             if(times==1){
                  printf("按键时长足够，成功！\r\n");
-                 GpioSetIsrMode(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW);
+                 GpioSetIsrMode(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_RISE_LEVEL_HIGH);
                  times=0;
                  if(g_ledState!=nextstate)
                     g_ledState=nextstate;
@@ -96,7 +96,7 @@ static void *ChildLock(const char *arg)
             
 
         }
-        // unsigned int signal_press=GpioGetDir(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_GPIO_DIR_IN);
+        // unsigned int signal_press=GpioGetDir(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_GPIO_DIR_IN);
         // printf("signal_press=%d\r\n",signal_press);
         // if(signal_press==0){
         //     printf("成功进入判断分支！\r\n");
@@ -120,7 +120,7 @@ static void Button_demo1(char *arg)
 {
     (void)arg;
     times++;
-    GpioSetIsrMode(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_RISE_LEVEL_HIGH);
+    GpioSetIsrMode(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_RISE_LEVEL_HIGH);
     
 }
 
@@ -128,13 +128,13 @@ static void Child_lock_ex1(void)
 {
     osThreadAttr_t attr;
     GpioInit();
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_GPIO_DIR_IN);
-    IoSetPull(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_IO_PULL_UP);
-    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_IO_FUNC_GPIO_11_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_GPIO_DIR_IN);
+    IoSetPull(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_IO_PULL_UP);
+    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
         Button_demo1,NULL);
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_IO_FUNC_GPIO_2_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_2, WIFI_IOT_GPIO_DIR_OUT);
     
     WatchDogDisable();
 
@@ -145,10 +145,11 @@ static void Child_lock_ex1(void)
     attr.stack_mem = NULL;
     attr.stack_size = LED_TASK_STACK_SIZE;
     attr.priority = LED_TASK_PRIO;
-
+    
     if (osThreadNew((osThreadFunc_t)ChildLock, NULL, &attr) == NULL) {
         printf("[ChildLock] Falied to create LedTask!\n");
     }
+    app_demo_heap_task();
 }
 
 SYS_RUN(Child_lock_ex1);

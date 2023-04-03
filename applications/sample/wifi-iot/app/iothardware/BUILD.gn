@@ -13,15 +13,22 @@
 
 static_library("iot_hardware") {
     sources = [
-        "led_app.c",
-        "beep_app.c",
+        
         #"traffic_light_demo.c",
         # "child_press3s.c",
         # "child_app.c",
         # "Timer_example.c",
-        #"child_press3s copy 2.c",
-        #"test.c",
-        "beep_app_only.c"
+        # "child_press3s copy 2.c",
+        # "fan_test.c",
+        # "SPI_test.c",
+
+        
+        # "led_app.c",
+        # "beep_app.c",
+        # "beep_app_only.c",
+        "app_demo_sysinfo.c",
+        "helloworld.c",
+
 
     ]
 
@@ -31,5 +38,6 @@ static_library("iot_hardware") {
         "//base/iot_hardware/interfaces/kits/wifiiot_lite",
         "//ohos_bundles/@ohos/iot_controller/hals/wifiiot_lite",
         "//applications/sample/wifi-iot/app/iothardware/include",
+        "//vendor/hisi/hi3861/hi3861/include",
     ]
 }

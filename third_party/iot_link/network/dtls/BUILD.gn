@@ -1,0 +1,49 @@
+# Copyright (c) 2020 Nanjing Xiaoxiongpai Intelligent Technology Co., Ltd.
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+dtls_inc = [
+    "mbedtls/mbedtls_port",
+    "../../inc",
+    "../../link_misc",
+    "//kernel/liteos_m/components/cmsis/2.0",
+    "//third_party/mbedtls/include/",
+]
+
+
+dtls_src = [
+    "dtls_al/dtls_al.c",
+    "mbedtls/mbedtls_port/dtls_interface.c",
+    "mbedtls/mbedtls_port/mbed_port.c",
+    "mbedtls/mbedtls_port/timing_alt.c",
+]
+dtls_def = [
+    "WITH_DTLS",
+    "MBEDTLS_AES_ROM_TABLES",
+    "MBEDTLS_CONFIG_FILE=\"los_mbedtls_config_dtls.h\"",
+    "CONFIG_DTLS_MBEDTLS_CERT",
+    "CONFIG_DTLS_MBEDTLS_PSK",
+    "CFG_MBEDTLS_MODE=PSK_CERT",
+
+]
+
+dtls_cflags = [
+    "-Wno-sign-compare",
+    "-Wno-unused-parameter",
+]
+
+static_library("dtls") {
+        cflags = dtls_cflags
+        defines = dtls_def
+        sources = dtls_src
+        include_dirs = dtls_inc
+}

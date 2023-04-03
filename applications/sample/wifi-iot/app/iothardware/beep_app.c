@@ -15,7 +15,7 @@
 
 #define LED_INTERVAL_TIME_US 300000
 #define LED_TASK_STACK_SIZE 1024
-#define Beep_Task_PRIO 24
+#define Beep_Task_PRIO 25
 
 int g_sound_state = 0;
 // enum LedState g_ledState = LED_SPARK;
@@ -58,28 +58,16 @@ void *BeepTask(const char *arg)
 
 void beep_on(void)
 {
-    osThreadAttr_t attr;
     GpioInit();
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
-    IoSetPull(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_IO_PULL_UP);
-    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_5, WIFI_IOT_INT_TYPE_EDGE, WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
+    printf("---------------------------------beep!!  beep_app------------------------\r\n");
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_12, WIFI_IOT_IO_FUNC_GPIO_12_GPIO);
+    IoSetPull(WIFI_IOT_IO_NAME_GPIO_12, WIFI_IOT_IO_PULL_UP);
+    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_12, WIFI_IOT_INT_TYPE_EDGE, WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
                         Button_demo1, NULL);
     IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT);
     GpioSetDir(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_GPIO_DIR_OUT);
     PwmInit(WIFI_IOT_PWM_PORT_PWM0);
 
     WatchDogDisable();
-    printf("beep!!\r\n");
-    attr.name = "BeepTask";
-    attr.attr_bits = 0U;
-    attr.cb_mem = NULL;
-    attr.cb_size = 0U;
-    attr.stack_mem = NULL;
-    attr.stack_size = LED_TASK_STACK_SIZE;
-    attr.priority = Beep_Task_PRIO;
-
-    if (osThreadNew((osThreadFunc_t)BeepTask, NULL, &attr) == NULL)
-    {
-        printf("[BeepTask] Falied to create LedTask!\n");
-    }
+    
 }

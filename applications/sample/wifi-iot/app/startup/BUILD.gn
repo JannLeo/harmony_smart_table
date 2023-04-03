@@ -13,8 +13,23 @@
 
 source_set("startup") {
     sources = [
-
+        # "helloworld.c",
+        # "led_example.c",
+        # "app_demo_sysinfo.c",
     ]
 
-    include_dirs = [ ]
+    include_dirs = [ 
+         "//utils/native/lite/include",
+        "//kernel/liteos_m/components/cmsis/2.0",
+        "//base/iot_hardware/interfaces/kits/wifiiot_lite",
+        "//ohos_bundles/@ohos/iot_controller/hals/wifiiot_lite",
+        "//applications/sample/wifi-iot/app/iothardware/include",
+        "//vendor/hisi/hi3861/hi3861/include",
+        # "//base/hiviewdfx/interfaces/kits/hilog_lite/log.h",
+        "//third_party/musl/include/sys",
+        "//base/iot_hardware/interfaces/kits/wifiiot_lite",
+        "//utils/native/lite/include",
+        "//base/iot_hardware/interfaces/kits/wifiiot_lite/kits",
+        
+    ]
 }

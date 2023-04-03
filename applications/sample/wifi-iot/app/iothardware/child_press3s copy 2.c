@@ -33,32 +33,63 @@ enum LedState {
     LED_OFF,
     LED_SPARK,
 };
-static int times = 0;
-enum LedState nextstate=LED_ON;
-//enum LedState g_ledState = LED_SPARK;
-enum LedState g_ledState = LED_OFF;
+int times = 0;
+
+int times_locate=0;
+
+static void OnButtonPressed(char *arg)
+{
+    (void) arg;
+    printf("--------------------------child PRESSED!---------------------\r\n");
+
+    times++;
+}
 static void *ChildLock(const char *arg)
 {
-    (void)arg;
+    // osThreadAttr_t attr;
+    
+   (void)arg;
+    bool clock_flag = 0;
     while(1){
-        printf("ljn最帅！\r\n");
-        osDelay(100);
-        unsigned int signal_press=GpioGetInputVal(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_GPIO_DIR_IN);
-        printf("signal_press=%d\r\n",signal_press);
+        // printf("ljn最帅！\r\n");
+        // osDelay(100);
+        if(times - times_locate == 1){
+            times_locate=times;
+            times=0;
+            printf("_______________________________\r\n");
+            // for(int i=1;i<=3;i++){
+            //     osDelay(100);
+            //     printf("--------------第%d秒-----------------\r\n",i);
+            //     if(times - times_locate != 1){
+            //         break;
+            //         clock_flag = 1;
+            //     }
+            // }
+            if(!clock_flag){
+                printf("———————————————child lock start successfully!———————————————————\r\n");
+            }
+            else{
+                times = 0;
+                times_locate = 0;
+            }
+            
+        }
+        
+        
+        
+        
     }
-
     return NULL;
 }
 static void Child_lock_ex1(void)
 {
     osThreadAttr_t attr;
     GpioInit();
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_IO_FUNC_GPIO_5_GPIO);
-    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_GPIO_DIR_IN);
-    IoSetPull(WIFI_IOT_IO_NAME_GPIO_5,WIFI_IOT_IO_PULL_UP);
-    
-    
-    
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_IO_FUNC_GPIO_11_GPIO);
+    GpioSetDir(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_GPIO_DIR_IN);
+    IoSetPull(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_IO_PULL_UP);
+    GpioRegisterIsrFunc(WIFI_IOT_IO_NAME_GPIO_11,WIFI_IOT_INT_TYPE_EDGE,WIFI_IOT_GPIO_EDGE_FALL_LEVEL_LOW,
+        OnButtonPressed,NULL);
     WatchDogDisable();
 
     attr.name = "ChildLock";
@@ -74,4 +105,4 @@ static void Child_lock_ex1(void)
     }
 }
 
-SYS_RUN(Child_lock_ex1);
+APP_FEATURE_INIT(Child_lock_ex1);

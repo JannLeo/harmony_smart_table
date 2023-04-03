@@ -109,6 +109,8 @@ typedef enum {
     HILOG_MODULE_SCY,
     /** XTS */
     HILOG_MODULE_XTS,
+    /* LJN_WIFI */
+    HILOG_MODULE_WIFI,
     /** Maximum number of modules */
     HILOG_MODULE_MAX
 } HiLogModuleType;

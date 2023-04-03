@@ -33,14 +33,8 @@ rule copy
   command = cp -afd ${in} ${out}
   description = COPY ${in} ${out}
 
-build obj/applications/sample/wifi-iot/app/app.stamp: stamp ./libs/libiot_hardware.a obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp ./libs/liballinone.a ./libs/libnfc_example.a ./libs/libmqtt_test_at.a
-subninja obj/applications/sample/wifi-iot/app/allinone/allinone.ninja
-build obj/applications/sample/wifi-iot/app/easy_wifi/easy_wifi.stamp: stamp ./libs/libwifi_demo.a ./libs/libeasy_wifi.a
-subninja obj/applications/sample/wifi-iot/app/easy_wifi/demo/wifi_demo.ninja
-subninja obj/applications/sample/wifi-iot/app/easy_wifi/src/easy_wifi.ninja
-subninja obj/applications/sample/wifi-iot/app/iothardware/iot_hardware.ninja
-subninja obj/applications/sample/wifi-iot/app/mqtt_demo/mqtt_test_at.ninja
-subninja obj/applications/sample/wifi-iot/app/nfc_ljn/nfc_example.ninja
+build obj/applications/sample/wifi-iot/app/app.stamp: stamp ./libs/libSmartTable.a
+subninja obj/applications/sample/wifi-iot/app/SmartTable/SmartTable.ninja
 subninja obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite.ninja
 build obj/base/hiviewdfx/frameworks/hilog_lite/mini/hilog_lite_ndk.stamp: stamp ./libs/libhilog_lite.a
 subninja obj/base/hiviewdfx/services/hiview_lite/hiview_lite.ninja
@@ -104,9 +98,14 @@ build obj/test/xts/tools/tools.stamp: stamp
 build obj/third_party/cJSON/cjson_ndk.stamp: stamp ./libs/libcjson_static.a
 build obj/third_party/cJSON/cjson_shared.stamp: stamp
 subninja obj/third_party/cJSON/cjson_static.ninja
-build obj/third_party/pahomqtt/pahomqtt_ndk.stamp: stamp ./libs/libpahomqtt_static.a
-build obj/third_party/pahomqtt/pahomqtt_shared.stamp: stamp
-subninja obj/third_party/pahomqtt/pahomqtt_static.ninja
+build obj/third_party/iot_link/iot_link.stamp: stamp ./libs/libinc.a ./libs/liblink_log.a ./libs/liblink_misc.a ./libs/libdtls.a ./libs/libmqtt.a ./libs/liboc_mqtt.a ./libs/libqueue.a
+subninja obj/third_party/iot_link/inc/inc.ninja
+subninja obj/third_party/iot_link/link_log/link_log.ninja
+subninja obj/third_party/iot_link/link_misc/link_misc.ninja
+subninja obj/third_party/iot_link/network/dtls/dtls.ninja
+subninja obj/third_party/iot_link/network/mqtt/mqtt.ninja
+subninja obj/third_party/iot_link/oc_mqtt/oc_mqtt.ninja
+subninja obj/third_party/iot_link/queue/queue.ninja
 build obj/utils/native/lite/file/file.stamp: stamp ./libs/libnative_file.a
 subninja obj/utils/native/lite/file/native_file.ninja
 build obj/utils/native/lite/kv_store/kv_store.stamp: stamp ./libs/libutils_kv_store.a
@@ -119,7 +118,7 @@ rule __vendor_hisi_hi3861_hi3861_run_wifiiot_scons___build_lite_toolchain_linux_
 build obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons_build_ext_components.txt: __vendor_hisi_hi3861_hi3861_run_wifiiot_scons___build_lite_toolchain_linux_x86_64_riscv32_gcc__rule | ../../build/lite/build_ext_components.py obj/base/security/frameworks/hichainsdk_lite/hichainsdk.stamp obj/build/lite/ohos.stamp obj/vendor/hisi/hi3861/hi3861/sdk.stamp
 
 build obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons.stamp: stamp obj/vendor/hisi/hi3861/hi3861/run_wifiiot_scons_build_ext_components.txt
-build obj/vendor/hisi/hi3861/hi3861/sdk.stamp: stamp ./libs/libcmsis.a ./libs/libkal.a ./libs/libcjson_static.a ./libs/libpahomqtt_static.a
+build obj/vendor/hisi/hi3861/hi3861/sdk.stamp: stamp ./libs/libcmsis.a ./libs/libkal.a ./libs/libcjson_static.a ./libs/libmqtt.a
 build obj/vendor/hisi/hi3861/hi3861/wifiiot_sdk.stamp: stamp obj/vendor/hisi/hi3861/hi3861/sdk.stamp
 subninja obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice.ninja
 build obj/vendor/hisi/hi3861/hi3861_adapter/hals/communication/wifi_lite/wifiservice/wifiservice_ndk.stamp: stamp ./libs/libwifiservice.a

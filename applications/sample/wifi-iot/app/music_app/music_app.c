@@ -35,10 +35,15 @@ static const uint8_t g_scoreDurations[] = {
     4, 4, 4, 4,        4, 4, 4, 4,        4, 4, 8,  4, 4, 8,
     3, 1, 3, 1, 4, 4,  3, 1, 3, 1, 4, 4,  4, 4, 8,  4, 4, 8,
 };
-
-static void *BeeperMusicTask(const char *arg)
+void BeeperMusicTask(void)
 {
-    (void)arg;
+     GpioInit();
+
+    // 蜂鸣器引脚 设置为 PWM功能
+    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT);
+    PwmInit(WIFI_IOT_PWM_PORT_PWM0);
+
+    WatchDogDisable();
 
     printf("BeeperMusicTask start!\r\n");
 
@@ -54,32 +59,53 @@ static void *BeeperMusicTask(const char *arg)
         PwmStop(WIFI_IOT_PWM_PORT_PWM0);
     }
 
-    return NULL;
+    // return NULL;
 }
 
-static void StartBeepMusicTask(void)
-{
-    osThreadAttr_t attr;
+// static void BeeperMusicTask(const char *arg)
+// {
+//     (void)arg;
 
-    GpioInit();
+//     printf("BeeperMusicTask start!\r\n");
 
-    // 蜂鸣器引脚 设置为 PWM功能
-    IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT);
-    PwmInit(WIFI_IOT_PWM_PORT_PWM0);
+//     hi_pwm_set_clock(PWM_CLK_XTAL); // 设置时钟源为晶体时钟（40MHz，默认时钟源160MHz）
 
-    WatchDogDisable();
+//     for (size_t i = 0; i < sizeof(g_scoreNotes)/sizeof(g_scoreNotes[0]); i++) {
+//         uint32_t tune = g_scoreNotes[i]; // 音符
+//         uint16_t freqDivisor = g_tuneFreqs[tune];
+//         uint32_t tuneInterval = g_scoreDurations[i] * (125*1000); // 音符时间
+//         printf("%d %d %d %d\r\n", tune, (40*1000*1000) / freqDivisor, freqDivisor, tuneInterval);
+//         PwmStart(WIFI_IOT_PWM_PORT_PWM0, freqDivisor/2, freqDivisor);
+//         usleep(tuneInterval);
+//         PwmStop(WIFI_IOT_PWM_PORT_PWM0);
+//     }
 
-    attr.name = "BeeperMusicTask";
-    attr.attr_bits = 0U;
-    attr.cb_mem = NULL;
-    attr.cb_size = 0U;
-    attr.stack_mem = NULL;
-    attr.stack_size = 1024;
-    attr.priority = osPriorityNormal;
+//     return NULL;
+// }
 
-    if (osThreadNew((osThreadFunc_t)BeeperMusicTask, NULL, &attr) == NULL) {
-        printf("[LedExample] Falied to create BeeperMusicTask!\n");
-    }
-}
+// static void StartBeepMusicTask(void)
+// {
+//     osThreadAttr_t attr;
 
-SYS_RUN(StartBeepMusicTask);
+//     GpioInit();
+
+//     // 蜂鸣器引脚 设置为 PWM功能
+//     IoSetFunc(WIFI_IOT_IO_NAME_GPIO_9, WIFI_IOT_IO_FUNC_GPIO_9_PWM0_OUT);
+//     PwmInit(WIFI_IOT_PWM_PORT_PWM0);
+
+//     WatchDogDisable();
+
+//     attr.name = "BeeperMusicTask";
+//     attr.attr_bits = 0U;
+//     attr.cb_mem = NULL;
+//     attr.cb_size = 0U;
+//     attr.stack_mem = NULL;
+//     attr.stack_size = 1024;
+//     attr.priority = osPriorityNormal;
+
+//     if (osThreadNew((osThreadFunc_t)BeeperMusicTask, NULL, &attr) == NULL) {
+//         printf("[LedExample] Falied to create BeeperMusicTask!\n");
+//     }
+// }
+
+// SYS_RUN(StartBeepMusicTask);
